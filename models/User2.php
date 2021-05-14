@@ -22,6 +22,7 @@ use Yii;
  * @property int $email_confirmed
  *
  * @property StudentRegistration[] $studentRegistrations
+ * @method hasMany(string $className, string[] $array)
  */
 class User2 extends \yii\db\ActiveRecord
 {

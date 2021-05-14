@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -9,9 +10,13 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\User2;
+use app\models\User2Search;
+use yii\data\ActiveDataProvider;
 
 class SiteController extends Controller
 {
+    public $dataProvider;
     /**
      * {@inheritdoc}
      */
@@ -124,5 +129,13 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionIndex1()
+    {
+        $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
+        return $this->render('index1',[
+            'dataProvider'=>$dataProvider,
+        ]);
     }
 }
