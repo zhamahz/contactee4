@@ -134,7 +134,7 @@ class SiteController extends Controller
     public function actionIndex1()
     {
         $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
-        return $this->render('index1',[
+        return $this->render('user2/index1',[
             'dataProvider'=>$dataProvider,
         ]);
     }
