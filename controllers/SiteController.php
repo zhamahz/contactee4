@@ -17,6 +17,7 @@ use yii\data\ActiveDataProvider;
 class SiteController extends Controller
 {
     public $dataProvider;
+    public $layout = 'main';
     /**
      * {@inheritdoc}
      */
@@ -137,5 +138,11 @@ class SiteController extends Controller
         return $this->render('user2/index1',[
             'dataProvider'=>$dataProvider,
         ]);
+    }
+
+    public function actionMain()
+    {
+        $this->layout='test';
+        return $this->render('main');
     }
 }
