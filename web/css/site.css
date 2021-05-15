@@ -113,3 +113,11 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 3px 10px;
+  font-size: 18px;
+  line-height: 20px;
+}

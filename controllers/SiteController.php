@@ -2,7 +2,6 @@
 
 namespace app\controllers;
 
-use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -10,28 +9,42 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\User2;
-use app\models\User2Search;
-use yii\data\ActiveDataProvider;
+use webvimark\components\BaseController;
 
-class SiteController extends Controller
+use app\models\Diploms;
+use app\models\DiplomsSearch;
+use app\models\Instudents;
+use app\models\InstudentsSearch;
+use app\models\Attestats;
+use app\models\AttestatsSearch;
+use app\models\Svids;
+use app\models\SvidsSearch;
+
+class SiteController extends BaseController
 {
-    public $dataProvider;
-    public $layout = 'main';
     /**
      * {@inheritdoc}
      */
+	public $freeAccess = true;
+	
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'index', 'contact', 'about'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+					[
+
+                        'actions' => ['index', 'contact', 'about'],
+                        'allow' => true,
+                        'roles' => ['@'],
+
                     ],
                 ],
             ],
@@ -41,6 +54,9 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+			'ghost-access'=> [
+				'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+			],
         ];
     }
 
@@ -131,18 +147,17 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
-    public function actionIndex1()
+	
+	public function actionDownload()
     {
-        $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
-        return $this->render('user2/index1',[
-            'dataProvider'=>$dataProvider,
-        ]);
+        return $this->render('download');
     }
+	
 
-    public function actionMain()
+	
+	public function actionSearch()
     {
-        $this->layout='test';
-        return $this->render('main');
-    }
+		return $this->render('search');
+	}
+
 }

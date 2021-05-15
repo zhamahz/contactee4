@@ -11,18 +11,15 @@ use Yii;
  * @property string $username
  * @property string $auth_key
  * @property string $password_hash
- * @property string|null $confirmation_token
+ * @property string $confirmation_token
  * @property int $status
- * @property int|null $superadmin
+ * @property int $superadmin
  * @property int $created_at
  * @property int $updated_at
- * @property string|null $registration_ip
- * @property string|null $bind_to_ip
- * @property string|null $email
+ * @property string $registration_ip
+ * @property string $bind_to_ip
+ * @property string $email
  * @property int $email_confirmed
- *
- * @property StudentRegistration[] $studentRegistrations
- * @method hasMany(string $className, string[] $array)
  */
 class User2 extends \yii\db\ActiveRecord
 {
@@ -69,15 +66,5 @@ class User2 extends \yii\db\ActiveRecord
             'email' => 'Email',
             'email_confirmed' => 'Email Confirmed',
         ];
-    }
-
-    /**
-     * Gets query for [[StudentRegistrations]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStudentRegistrations()
-    {
-        return $this->hasMany(StudentRegistration::className(), ['id_user' => 'id']);
     }
 }
