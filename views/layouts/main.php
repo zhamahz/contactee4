@@ -120,7 +120,22 @@ AppAsset::register($this);
 		'items' => [
 
 		    ['label' => 'Главная', 'url' => ['/site/index'], 'visible' => !Yii::$app->user->isGuest],
-            //['label' => 'FAQ', 'url' => ['/site/about'], 'visible' => !Yii::$app->user->isGuest],
+		    // Разделы МОН
+		    ['label' => 'Список ВУЗов МОН', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest],
+		    ['label' => 'Список ПК МОН', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest],
+		    ['label' => 'Список всех заявок МОН', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest],
+		    ['label' => 'Список отчетов МОН', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest],
+		    // Разделы МИД
+		    ['label' => 'Список заявлений на визу МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest],
+            // Разделы ПК
+            ['label' => 'Список заявителей ПК', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Список отчетов ПК', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Экзамены ПК', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest],
+            // Разделы абитура
+            ['label' => 'Подача заявления АБ', 'url' => ['/student/studentsapplication'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Профайл АБ', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Мои заявки АБ', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest],
+            ['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest],
 			//['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
             ['label' => 'Контакты', 'url' => ['/site/contact'], 'visible' => !Yii::$app->user->isGuest],
 			[

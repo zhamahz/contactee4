@@ -160,41 +160,41 @@ class SiteController extends Controller
 //            'dataProvider' => $dataProvider,
 //        ]);
 //    }
-//    public function actionApplicationlist()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('applicationlist/applicationlist', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-//    public function actionAnalitikavuz()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('applicationlist/analitikavuz', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-//    public function actionUniversityreport()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('applicationlist/universityreport', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-//    public function actionUniversityexam()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('applicationlist/universityexam', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-//    public function actionUniversitynews()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('applicationlist/universitynews', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
+    public function actionApplicationlist()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/applicationlist', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionAnalitikavuz()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/analitikavuz', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversityreport()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universityreport', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversityexam()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universityexam', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversitynews()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universitynews', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 //    public function actionProfile()
 //    {
 //        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);

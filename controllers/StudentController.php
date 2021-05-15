@@ -125,7 +125,7 @@ class StudentController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    public function actionStudentsapplications()
+    public function actionStudentsapplication()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
         return $this->render('studentsapplication', [
@@ -153,10 +153,10 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    public function actionUniversityexam()
+    public function actionUniversityexams()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('universityexam', [
+        return $this->render('universityexams', [
             'dataProvider' => $dataProvider,
         ]);
     }
