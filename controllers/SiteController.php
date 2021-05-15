@@ -2,8 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\StudentRegistration;
+use app\models\StudentRegistrationSearch;
 use app\models\University;
 use Yii;
+use yii\base\BaseObject;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -11,24 +14,14 @@ use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use webvimark\components\BaseController;
 
-use app\models\Diploms;
-use app\models\DiplomsSearch;
-use app\models\Instudents;
-use app\models\InstudentsSearch;
-use app\models\Attestats;
-use app\models\AttestatsSearch;
-use app\models\Svids;
-use app\models\SvidsSearch;
-
-class SiteController extends BaseController
+class SiteController extends Controller
 {
     /**
      * {@inheritdoc}
      */
-	public $freeAccess = true;
-	
+    public $freeAccess = true;
+
     public function behaviors()
     {
         return [
@@ -41,7 +34,7 @@ class SiteController extends BaseController
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-					[
+                    [
 
                         'actions' => ['index', 'contact', 'about'],
                         'allow' => true,
@@ -56,9 +49,9 @@ class SiteController extends BaseController
                     'logout' => ['post'],
                 ],
             ],
-			'ghost-access'=> [
-				'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
-			],
+            'ghost-access' => [
+                'class' => 'webvimark\modules\UserManagement\components\GhostAccessControl',
+            ],
         ];
     }
 
@@ -149,16 +142,71 @@ class SiteController extends BaseController
     {
         return $this->render('about');
     }
-	
-	public function actionDownload()
+
+    public function actionDownload()
     {
         return $this->render('download');
     }
 
-	public function actionSearch()
+    public function actionSearch()
     {
-		return $this->render('search');
-	}
+        return $this->render('search');
+    }
 
-
+    public function actionStudentsapplication()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('studentsapplication/studentsapplication', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionApplication()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/applicationlist', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionAnalitikavuz()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/analitikavuz', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversityreport()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universityreport', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversityexam()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universityexam', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionUniversitynews()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist/universitynews', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionProfile()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('studentsapplication/profile', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+    public function actionMyapplications()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('studentsapplication/myapplications', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }

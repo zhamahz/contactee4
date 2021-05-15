@@ -30,7 +30,7 @@ $config = [
 			'enableCookieValidation' => true,
 			'enableCsrfValidation' => true,
 			'parsers' => [
-                'application/json' => 'yii\web\JsonParser',
+                'applicationlist/json' => 'yii\web\JsonParser',
             ]
         ],
         'cache' => [
