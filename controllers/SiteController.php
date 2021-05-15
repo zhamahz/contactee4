@@ -2,7 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\University;
 use Yii;
+use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
@@ -152,12 +154,11 @@ class SiteController extends BaseController
     {
         return $this->render('download');
     }
-	
 
-	
 	public function actionSearch()
     {
 		return $this->render('search');
 	}
+
 
 }
