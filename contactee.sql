@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 15 2021 г., 00:48
+-- Время создания: Май 15 2021 г., 15:05
 -- Версия сервера: 5.6.38
 -- Версия PHP: 7.2.0
 
@@ -542,7 +542,9 @@ CREATE TABLE `student_registration` (
   `id_uni_accepted_3` int(11) NOT NULL,
   `id_uni_accepted_4` int(11) NOT NULL,
   `id_uni_accepted_5` int(11) NOT NULL,
-  `id_visa` int(11) NOT NULL
+  `visa` char(20) NOT NULL,
+  `datetime_visa` date NOT NULL,
+  `status_visa` char(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -711,7 +713,20 @@ ALTER TABLE `student_registration`
   ADD KEY `id_user` (`id_user`),
   ADD KEY `id_country` (`id_country`),
   ADD KEY `id_program_1` (`id_program_1`),
-  ADD KEY `id_uni_1` (`id_uni_1`);
+  ADD KEY `id_uni_1` (`id_uni_1`),
+  ADD KEY `id_uni_2` (`id_uni_2`),
+  ADD KEY `id_uni_3` (`id_uni_3`),
+  ADD KEY `id_uni_4` (`id_uni_4`),
+  ADD KEY `id_uni_5` (`id_uni_5`),
+  ADD KEY `id_program_2` (`id_program_2`),
+  ADD KEY `id_program_3` (`id_program_3`),
+  ADD KEY `id_program_4` (`id_program_4`),
+  ADD KEY `id_program_5` (`id_program_5`),
+  ADD KEY `id_uni_accepted_1` (`id_uni_accepted_1`),
+  ADD KEY `id_uni_accepted_2` (`id_uni_accepted_2`),
+  ADD KEY `id_uni_accepted_3` (`id_uni_accepted_3`),
+  ADD KEY `id_uni_accepted_4` (`id_uni_accepted_4`),
+  ADD KEY `id_uni_accepted_5` (`id_uni_accepted_5`);
 
 --
 -- Индексы таблицы `university`
@@ -775,9 +790,23 @@ ALTER TABLE `user_visit_log`
 --
 ALTER TABLE `student_registration`
   ADD CONSTRAINT `student_registration_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_10` FOREIGN KEY (`id_program_3`) REFERENCES `programs` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_11` FOREIGN KEY (`id_program_3`) REFERENCES `programs` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_12` FOREIGN KEY (`id_program_4`) REFERENCES `programs` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_13` FOREIGN KEY (`id_program_5`) REFERENCES `programs` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_14` FOREIGN KEY (`id_uni_accepted_1`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_15` FOREIGN KEY (`id_uni_accepted_2`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_16` FOREIGN KEY (`id_uni_accepted_3`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_17` FOREIGN KEY (`id_uni_accepted_4`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_18` FOREIGN KEY (`id_uni_accepted_5`) REFERENCES `university` (`id`),
   ADD CONSTRAINT `student_registration_ibfk_2` FOREIGN KEY (`id_country`) REFERENCES `country` (`id`),
   ADD CONSTRAINT `student_registration_ibfk_3` FOREIGN KEY (`id_program_1`) REFERENCES `programs` (`id`),
-  ADD CONSTRAINT `student_registration_ibfk_4` FOREIGN KEY (`id_uni_1`) REFERENCES `university` (`id`);
+  ADD CONSTRAINT `student_registration_ibfk_4` FOREIGN KEY (`id_uni_1`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_5` FOREIGN KEY (`id_uni_2`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_6` FOREIGN KEY (`id_uni_3`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_7` FOREIGN KEY (`id_uni_4`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_8` FOREIGN KEY (`id_uni_5`) REFERENCES `university` (`id`),
+  ADD CONSTRAINT `student_registration_ibfk_9` FOREIGN KEY (`id_program_2`) REFERENCES `programs` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
