@@ -2,21 +2,17 @@
 
 namespace app\controllers;
 
-use app\models\StudentRegistration;
-use app\models\User2;
 use Yii;
-use app\models\University;
-use app\models\UniversitySearch;
-use yii\base\BaseObject;
-use yii\data\ActiveDataProvider;
+use app\models\User2;
+use app\models\User2Search;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * UniversityController implements the CRUD actions for University model.
+ * User2Controller implements the CRUD actions for User2 model.
  */
-class UniversityController extends Controller
+class User2Controller extends Controller
 {
     /**
      * {@inheritdoc}
@@ -34,12 +30,12 @@ class UniversityController extends Controller
     }
 
     /**
-     * Lists all University models.
+     * Lists all User2 models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UniversitySearch();
+        $searchModel = new User2Search();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -49,7 +45,7 @@ class UniversityController extends Controller
     }
 
     /**
-     * Displays a single University model.
+     * Displays a single User2 model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -62,13 +58,13 @@ class UniversityController extends Controller
     }
 
     /**
-     * Creates a new University model.
+     * Creates a new User2 model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new University();
+        $model = new User2();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -80,7 +76,7 @@ class UniversityController extends Controller
     }
 
     /**
-     * Updates an existing University model.
+     * Updates an existing User2 model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -100,7 +96,7 @@ class UniversityController extends Controller
     }
 
     /**
-     * Deletes an existing University model.
+     * Deletes an existing User2 model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -114,74 +110,18 @@ class UniversityController extends Controller
     }
 
     /**
-     * Finds the University model based on its primary key value.
+     * Finds the User2 model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return University the loaded model
+     * @return User2 the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = University::findOne($id)) !== null) {
+        if (($model = User2::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }
-    // МОН раздел списки вузов
-    public function actionIndexmon()
-    {
-        $dataProvider=new ActiveDataProvider(['query' => University::find()]);
-        return $this->render('indexmon',[
-            'dataProvider'=>$dataProvider,
-        ]);
-    }
-
-   //МОН списки приемной комиссии вузов
-    public function actionIndexmoncommitet()
-    {
-        $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
-        return $this->render('user2/indexmoncommitet',[
-            'dataProvider'=>$dataProvider,
-        ]);
-    }
-
-    //МОН списки всех поданных заялений
-    public function actionIndexmonlistapplic()
-    {
-        $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('student-registration/indexmonlistapplic',[
-            'dataProvider'=>$dataProvider,
-        ]);
-    }
-
-    //МОН списки отчетов
-    public function actionIndexmonreport()
-    {
-        $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('student-registration/indexmonreport',[
-            'dataProvider'=>$dataProvider,
-        ]);
-    }
-
-    //МОН диаграммы
-    public function actionDiagrammsmon()
-    {
-        return $this->render('diagrammsmon');
-    }
-
-    //МИД списки заявлений на визу
-    public function actionIndexmidvisalist()
-    {
-        $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('student-registration/indexmidvisalist',[
-            'dataProvider'=>$dataProvider,
-        ]);
-    }
-
-    //MID диаграммы
-    public function actionDiagrammsmid()
-    {
-        return $this->render('diagrammsmid');
     }
 }
