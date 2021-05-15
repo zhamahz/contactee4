@@ -153,60 +153,61 @@ class SiteController extends Controller
         return $this->render('search');
     }
 
-    public function actionStudentsapplication()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('studentsapplication/studentsapplication', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionApplication()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist/applicationlist', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionAnalitikavuz()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist/analitikavuz', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionUniversityreport()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist/universityreport', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionUniversityexam()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist/universityexam', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionUniversitynews()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist/universitynews', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionProfile()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('studentsapplication/profile', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
-    public function actionMyapplications()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('studentsapplication/myapplications', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+//    public function actionStudentsapplication()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('studentsapplication/studentsapplication', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionApplicationlist()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('applicationlist/applicationlist', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionAnalitikavuz()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('applicationlist/analitikavuz', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionUniversityreport()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('applicationlist/universityreport', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionUniversityexam()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('applicationlist/universityexam', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionUniversitynews()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('applicationlist/universitynews', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionProfile()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('studentsapplication/profile', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+//    public function actionMyapplications()
+//    {
+//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+//        return $this->render('studentsapplication/myapplications', [
+//            'dataProvider' => $dataProvider,
+//        ]);
+//    }
+
 }
