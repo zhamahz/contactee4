@@ -52,9 +52,9 @@ class University extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'type' => 'Type',
-            'address' => 'Address',
+            'name' => 'Название ВУЗа',
+            'type' => 'Тип организации',
+            'address' => 'Адрес',
             'email' => 'Email',
         ];
     }

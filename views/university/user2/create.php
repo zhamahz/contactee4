@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\User2 */
 
-$this->title = 'Create User2';
-$this->params['breadcrumbs'][] = ['label' => 'User2s', 'url' => ['index']];
+$this->title = 'Создать приемную комиссию';
+$this->params['breadcrumbs'][] = ['label' => 'Приемная комиссия', 'url' => ['indexmoncommitet']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user2-create">

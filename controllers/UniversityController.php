@@ -42,7 +42,7 @@ class UniversityController extends Controller
         $searchModel = new UniversitySearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('indexmon', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -110,7 +110,7 @@ class UniversityController extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['indexmon']);
     }
 
     /**
@@ -128,7 +128,7 @@ class UniversityController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-    // МОН раздел списки вузов
+    // МОН раздел списки всех вузов:  view-> university/indexmon
     public function actionIndexmon()
     {
         $dataProvider=new ActiveDataProvider(['query' => University::find()]);
@@ -137,7 +137,7 @@ class UniversityController extends Controller
         ]);
     }
 
-   //МОН списки приемной комиссии вузов
+   //МОН списки приемной комиссии вузов:  view-> user2/indexmoncommitet
     public function actionIndexmoncommitet()
     {
         $dataProvider=new ActiveDataProvider(['query' => User2::find()]);
@@ -146,7 +146,7 @@ class UniversityController extends Controller
         ]);
     }
 
-    //МОН списки всех поданных заялений
+    //МОН списки всех поданных заялений:  view-> student-registration/indexmonlistapplic
     public function actionIndexmonlistapplic()
     {
         $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -155,7 +155,8 @@ class UniversityController extends Controller
         ]);
     }
 
-    //МОН списки отчетов
+    //МОН списки отчетов :  view->student-registration/indexmonreport
+    // вывод списка университетов сколько принятых и полученных заявок в количестве
     public function actionIndexmonreport()
     {
         $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -164,13 +165,13 @@ class UniversityController extends Controller
         ]);
     }
 
-    //МОН диаграммы
+    //МОН диаграммы :  view->university/diagrammsmon
     public function actionDiagrammsmon()
     {
         return $this->render('diagrammsmon');
     }
 
-    //МИД списки заявлений на визу
+    //МИД списки заявлений на визу:   view->student-registration/indexmidvisalist
     public function actionIndexmidvisalist()
     {
         $dataProvider=new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -179,7 +180,7 @@ class UniversityController extends Controller
         ]);
     }
 
-    //MID диаграммы
+    //MID диаграммы  view->university/diagrammsmid
     public function actionDiagrammsmid()
     {
         return $this->render('diagrammsmid');

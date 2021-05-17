@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\UniversitySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Universities';
+$this->title = 'Список всех зарегистрированных университетов';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="university-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create University', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Добавить новый ВУЗ', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,7 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'name',
             'type',
             'address',
