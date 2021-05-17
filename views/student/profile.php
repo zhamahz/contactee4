@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\StudentRegistrationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Student Registrations';
+$this->title = 'Профайл';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-registration-index">
@@ -15,26 +15,22 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Student Registration', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_user',
+//            'id',
+//            'id_user',
             'fullname',
             'gender',
             'birthday',
-            //'id_country',
-            //'email:email',
-            //'photo_passport',
-            //'pdf_attestat',
-            //'pdf_motivation',
+            'id_country',
+            'email:email',
+            'photo_passport',
+            'pdf_attestat',
+            'pdf_motivation',
             //'id_uni_1',
             //'id_program_1',
             //'datetime_reg_1',
