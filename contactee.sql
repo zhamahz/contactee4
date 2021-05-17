@@ -582,7 +582,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email_confirmed` smallint(1) NOT NULL DEFAULT 0,
   `id_university` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `id_university` (`id_university`)
+  KEY `id_university` (`id_university`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_university`) REFERENCES `university` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы contactee.user: ~3 rows (приблизительно)
@@ -606,9 +607,9 @@ CREATE TABLE IF NOT EXISTS `user_visit_log` (
   `os` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=534 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=537 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.user_visit_log: ~42 rows (приблизительно)
+-- Дамп данных таблицы contactee.user_visit_log: ~45 rows (приблизительно)
 /*!40000 ALTER TABLE `user_visit_log` DISABLE KEYS */;
 REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `user_id`, `visit_time`, `browser`, `os`) VALUES
 	(492, '6077cc111724e', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 OPR/75.0.3969.149', 3, 1618463761, 'Chrome', 'Windows'),
@@ -652,7 +653,10 @@ REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `u
 	(530, '60a14956d0669', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 4, 1621182806, 'Chrome', 'Windows'),
 	(531, '60a1496f68fa8', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621182831, 'Chrome', 'Windows'),
 	(532, '60a21ece6fcea', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621237454, 'Chrome', 'Windows'),
-	(533, '60a222401399f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621238336, 'Chrome', 'Windows');
+	(533, '60a222401399f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621238336, 'Chrome', 'Windows'),
+	(534, '60a24029db9f4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621245993, 'Chrome', 'Windows'),
+	(535, '60a2438c82df1', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621246860, 'Chrome', 'Windows'),
+	(536, '60a245881e3b0', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621247368, 'Chrome', 'Windows');
 /*!40000 ALTER TABLE `user_visit_log` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

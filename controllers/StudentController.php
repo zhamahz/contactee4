@@ -160,6 +160,7 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+	
     public function actionUniversitynews()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
