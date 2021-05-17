@@ -38,7 +38,7 @@ class User2Controller extends Controller
         $searchModel = new User2Search();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
+        return $this->render('indexmoncommitet', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
@@ -106,7 +106,7 @@ class User2Controller extends Controller
     {
         $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+        return $this->redirect(['indexmoncommitet']);
     }
 
     /**

@@ -11,19 +11,19 @@ use yii\widgets\ActiveForm;
 <div class="user2-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['indexmoncommitet'],
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
+<!--    --><?//= $form->field($model, 'id') ?>
 
     <?= $form->field($model, 'username') ?>
 
-    <?= $form->field($model, 'auth_key') ?>
+<!--    --><?//= $form->field($model, 'auth_key') ?>
 
-    <?= $form->field($model, 'password_hash') ?>
-
-    <?= $form->field($model, 'confirmation_token') ?>
+<!--    --><?//= $form->field($model, 'password_hash') ?>
+<!---->
+<!--    --><?//= $form->field($model, 'confirmation_token') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 
@@ -37,15 +37,15 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'bind_to_ip') ?>
 
-    <?php // echo $form->field($model, 'email') ?>
+    <?php echo $form->field($model, 'email') ?>
 
-    <?php // echo $form->field($model, 'email_confirmed') ?>
+    <?php //echo $form->field($model, 'email_confirmed') ?>
 
-    <?php // echo $form->field($model, 'id_uni') ?>
+    <?php echo $form->field($model, 'id_university') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton('Поиск', ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton('Сброс', ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

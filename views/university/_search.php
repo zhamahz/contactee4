@@ -11,7 +11,7 @@ use yii\widgets\ActiveForm;
 <div class="university-search">
 
     <?php $form = ActiveForm::begin([
-        'action' => ['index'],
+        'action' => ['indexmon'],
         'method' => 'get',
     ]); ?>
 

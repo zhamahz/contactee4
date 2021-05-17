@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\User2Search */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'User2s';
+$this->title = 'Список Приемной комиссии всех вузов';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user2-index">
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create User2', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать новую приемную комиссию', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,20 +25,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'username',
-            'auth_key',
-            'password_hash',
-            'confirmation_token',
+           // 'auth_key',
+            //'password_hash',
+            //'confirmation_token',
             //'status',
             //'superadmin',
             //'created_at',
             //'updated_at',
             //'registration_ip',
             //'bind_to_ip',
-            //'email:email',
+            'email:email',
             //'email_confirmed:email',
-            //'id_uni',
+            'id_university',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

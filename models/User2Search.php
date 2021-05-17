@@ -18,7 +18,7 @@ class User2Search extends User2
     {
         return [
             [['id', 'status', 'superadmin', 'created_at', 'updated_at', 'email_confirmed', 'id_uni'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'confirmation_token', 'registration_ip', 'bind_to_ip', 'email'], 'safe'],
+            [['username', 'auth_key', 'password_hash', 'confirmation_token', 'registration_ip', 'bind_to_ip', 'email','id_university'], 'safe'],
         ];
     }
 
@@ -64,7 +64,7 @@ class User2Search extends User2
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'email_confirmed' => $this->email_confirmed,
-            'id_uni' => $this->id_uni,
+            'id_university' => $this->id_university,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
@@ -73,7 +73,8 @@ class User2Search extends User2
             ->andFilterWhere(['like', 'confirmation_token', $this->confirmation_token])
             ->andFilterWhere(['like', 'registration_ip', $this->registration_ip])
             ->andFilterWhere(['like', 'bind_to_ip', $this->bind_to_ip])
-            ->andFilterWhere(['like', 'email', $this->email]);
+            ->andFilterWhere(['like', 'email', $this->email])
+        ->andFilterWhere(['like', 'id_university', $this->id_university]);
 
         return $dataProvider;
     }

@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\University */
 
-$this->title = 'Create University';
+$this->title = 'Создать новый ВУЗ';
 $this->params['breadcrumbs'][] = ['label' => 'Universities', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

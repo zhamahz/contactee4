@@ -53,18 +53,19 @@ class User2 extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'ФИО',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'confirmation_token' => 'Confirmation Token',
-            'status' => 'Status',
+            'status' => 'Статус',
             'superadmin' => 'Superadmin',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'registration_ip' => 'Registration Ip',
             'bind_to_ip' => 'Bind To Ip',
-            'email' => 'Email',
+            'email' => 'Email адрес',
             'email_confirmed' => 'Email Confirmed',
+            'id_university' => 'ВУЗ',
         ];
     }
 }
