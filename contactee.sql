@@ -574,6 +574,10 @@ CREATE TABLE IF NOT EXISTS `university` (
 
 -- Дамп данных таблицы contactee.university: ~0 rows (приблизительно)
 /*!40000 ALTER TABLE `university` DISABLE KEYS */;
+REPLACE INTO `university` (`id`, `name`, `type`, `address`, `email`) VALUES
+	(1, 'КРСУ', 'Высшее учебное заведение', '720000, г. Бишкек, ул. Киевская, 44', 'krsu@krsu.edu.kg'),
+	(2, 'КГТУ', 'Высшее учебное заведение', '720044, Кыргызстан, г.Бишкек, пр.Ч.Айтматова, 66', 'rector@kstu.kg'),
+	(3, 'КГМА', 'Высшее учебное заведение', 'ул. И.Ахунбаева, 92, Бишкек, 720020', 'akhunbaev@kgma.kg');
 /*!40000 ALTER TABLE `university` ENABLE KEYS */;
 
 -- Дамп структуры для таблица contactee.user
@@ -624,7 +628,7 @@ CREATE TABLE IF NOT EXISTS `user_visit_log` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.user_visit_log: ~5 rows (приблизительно)
+-- Дамп данных таблицы contactee.user_visit_log: ~9 rows (приблизительно)
 /*!40000 ALTER TABLE `user_visit_log` DISABLE KEYS */;
 REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `user_id`, `visit_time`, `browser`, `os`) VALUES
 	(549, '60a372e71a6f5', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621324519, 'Chrome', 'Windows'),
@@ -635,7 +639,16 @@ REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `u
 	(554, '60a3834c71245', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621328716, 'Chrome', 'Windows'),
 	(555, '60a385e12841b', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 15, 1621329377, 'Chrome', 'Windows'),
 	(556, '60a385e903a06', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621329385, 'Chrome', 'Windows'),
-	(557, '60a3861162e06', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621329425, 'Chrome', 'Windows');
+	(557, '60a3861162e06', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621329425, 'Chrome', 'Windows'),
+	(558, '60a38aaa39c1e', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 13, 1621330602, 'Chrome', 'Windows'),
+	(559, '60a38aba92125', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621330618, 'Chrome', 'Windows'),
+	(560, '60a38c5e98f81', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621331038, 'Chrome', 'Windows'),
+	(561, '60a38ce05824e', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621331168, 'Chrome', 'Windows'),
+	(562, '60a38cf42c25f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 17, 1621331188, 'Chrome', 'Windows'),
+	(563, '60a38e2694853', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621331494, 'Chrome', 'Windows'),
+	(564, '60a38e2fd1221', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 17, 1621331503, 'Chrome', 'Windows'),
+	(565, '60a39bdbe7e13', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621335003, 'Chrome', 'Windows'),
+	(566, '60a3a0e7b222f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621336295, 'Chrome', 'Windows');
 /*!40000 ALTER TABLE `user_visit_log` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

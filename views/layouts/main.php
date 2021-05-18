@@ -158,6 +158,13 @@ AppAsset::register($this);
 			//['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
             //['label' => 'Контакты', 'url' => ['/site/contact'], 'visible' => !Yii::$app->user->isGuest],
 			[
+			'label' => 'Тест',
+			'items'=>[
+				['label' => 'Тест1', 'url' => ['/university/index3'], 'visible' => !Yii::$app->user->isGuest],
+				['label' => 'Тест2', 'url' => ['/university/indexmon2'], 'visible' => !Yii::$app->user->isGuest],
+				['label' => 'Тест3', 'url' => ['/university/index4'], 'visible' => !Yii::$app->user->isGuest],
+			],],
+			[
 				'label' => 'Пользователи',
 				'items'=>UserManagementModule::menuItems()
 			],

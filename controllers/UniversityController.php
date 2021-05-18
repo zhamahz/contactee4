@@ -13,6 +13,9 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
+use yii2mod\query\ArrayQuery;
+use yii\db\ActiveQuery;
+
 /**
  * UniversityController implements the CRUD actions for University model.
  */
@@ -184,5 +187,51 @@ class UniversityController extends Controller
     public function actionDiagrammsmid()
     {
         return $this->render('diagrammsmid');
+    }
+	
+	// тест 
+	public function actionIndex3()
+    {
+		$q = University::find()->where(['name' => 'КГТУ'])->all();
+		$query = new ArrayQuery();
+		$query->from($q);
+		$query1 = $query->count();
+		
+        return $this->render('index3', [
+			'query' => $q,
+			'query1' => $query1,
+        ]);
+    }
+	
+	// тест3 
+	public function actionIndex4()
+    {
+		$q22 = Yii::$app->user->identity->id;	
+		
+		//список StudentRegistration
+		$q = StudentRegistration::find()->where(['id_user' => $q22]);
+
+		
+        return $this->render('index4', [
+			'query' => $q22,
+
+        ]);
+    }
+	
+	//тест2
+	public function actionIndexmon2()
+    {
+		$q = Yii::$app->user->identity->id;	
+		
+		$dataProvider=new ActiveDataProvider(['query' => University::find()]);
+
+		if ($q == 12)
+		{
+			$dataProvider=new ActiveDataProvider(['query' => University::find()->where(['name' => 'КРСУ'])]);
+		}
+
+        return $this->render('indexmon2',[
+            'dataProvider'=>$dataProvider,
+        ]);
     }
 }
