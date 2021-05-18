@@ -151,7 +151,7 @@ AppAsset::register($this);
 			'label' => 'Разделы АБ',
 			'items'=>[
 				['label' => 'Форма подачи заявления', 'url' => ['/student/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Профиль', 'url' => ['/student/update'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Профиль', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 				['label' => 'Поданные заявления', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 				['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 			],],
