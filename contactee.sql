@@ -20,11 +20,15 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.auth_assignment: ~2 rows (приблизительно)
+-- Дамп данных таблицы contactee.auth_assignment: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `auth_assignment` DISABLE KEYS */;
 REPLACE INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
-	('Admin', 3, 1553822355),
-	('User', 2, 1553168239);
+	('Mid', 13, 1621324742),
+	('Mon', 12, 1621324712),
+	('Student', 16, 1621324927),
+	('Student', 17, 1621324949),
+	('University', 14, 1621324861),
+	('University', 15, 1621324888);
 /*!40000 ALTER TABLE `auth_assignment` ENABLE KEYS */;
 
 -- Дамп структуры для таблица contactee.auth_item
@@ -120,7 +124,10 @@ REPLACE INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `c
 	('deleteUsers', 2, 'Delete users', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
 	('editUserEmail', 2, 'Edit user email', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
 	('editUsers', 2, 'Edit users', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
-	('User', 1, 'User', NULL, NULL, 1553168141, 1553168141, NULL),
+	('Mid', 1, 'Mid', NULL, NULL, 1621324271, 1621324271, NULL),
+	('Mon', 1, 'Mon', NULL, NULL, 1621324241, 1621324241, NULL),
+	('Student', 1, 'Student', NULL, NULL, 1553168141, 1621324045, NULL),
+	('University', 1, 'University', NULL, NULL, 1621324366, 1621324366, NULL),
 	('viewRegistrationIp', 2, 'View registration IP', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
 	('viewUserEmail', 2, 'View user email', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
 	('viewUserRoles', 2, 'View user roles', NULL, NULL, 1553116978, 1553116978, 'userManagement'),
@@ -163,7 +170,11 @@ REPLACE INTO `auth_item_child` (`parent`, `child`) VALUES
 	('editUsers', '/user-management/user/bulk-deactivate'),
 	('editUsers', '/user-management/user/update'),
 	('editUsers', 'viewUsers'),
-	('User', 'changeOwnPassword'),
+	('Mid', 'changeOwnPassword'),
+	('Mon', 'changeOwnPassword'),
+	('Student', 'changeOwnPassword'),
+	('University', 'Admin'),
+	('University', 'changeOwnPassword'),
 	('viewUsers', '/user-management/user/grid-page-size'),
 	('viewUsers', '/user-management/user/index'),
 	('viewUsers', '/user-management/user/view');
@@ -568,7 +579,7 @@ CREATE TABLE IF NOT EXISTS `university` (
 -- Дамп структуры для таблица contactee.user
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `auth_key` varchar(32) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `confirmation_token` varchar(255) DEFAULT NULL,
@@ -584,14 +595,18 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`),
   KEY `id_university` (`id_university`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_university`) REFERENCES `university` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 -- Дамп данных таблицы contactee.user: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 REPLACE INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `confirmation_token`, `status`, `superadmin`, `created_at`, `updated_at`, `registration_ip`, `bind_to_ip`, `email`, `email_confirmed`, `id_university`) VALUES
 	(1, 'superadmin', 'FA8pa808MoGF13R6Yu1Iku76znqnM9bH', '$2y$13$Go.CXY0lDzfqSghCL57B2.xJKjvSFuHrOQrrwtjzX7Ir1ki1mgZma', NULL, 1, 1, 1553116976, 1553116976, NULL, NULL, NULL, 0, 0),
-	(3, 'admin', 'NC0bl9AWMvb3FvuvLZAFv--kKVirRaCt', '$2y$13$le36TReLmno3G32dsXGKWuRIo/YZh4KMTYkv98i/28KUVPqETiImq', NULL, 1, 0, 1553822349, 1621237675, '31.186.51.161', '', '', 0, 0),
-	(4, 'user', '_hql3NQ35X6YBWuEfk5c-ppHeP4aCI9s', '$2y$13$cXeL4eIsSUmwuEw/ixM7aeO1tIrAElBP8lSkGhQZ3Wa5WI59fOpN6', NULL, 1, 0, 1600539731, 1618465573, '31.186.51.161', '', '', 0, 0);
+	(12, 'mon', 'qcew3K_kWXwsF8Bag4sKPmMrV5kN4M0s', '$2y$13$cDfmeYb0p8/WlBCxoMKh0uvZoZN8t7EQGI2VyDqmbT4Yq90nVRNZ.', NULL, 1, 0, 1621324700, 1621324700, '127.0.0.1', '', '', 0, NULL),
+	(13, 'mid', '7hudV5dAvl1_8tLzHuvXzGFO25iCfH8w', '$2y$13$8/4G.cLN9fazY3IL4tBgmOTWuTEmPAnKxQlcK.fE1/3o3pFIUBjSO', NULL, 1, 0, 1621324735, 1621324735, '127.0.0.1', '', '', 0, NULL),
+	(14, 'university1', 'Yo3CG1454dpm9hqIYBGMOwGHhc9cNDjE', '$2y$13$iq1m3HLwNfEPWhTUKofrJOSyOh5iAM9HEO6VNWtiyo5OqHLqEZ6Le', NULL, 1, 0, 1621324854, 1621324854, '127.0.0.1', '', '', 0, NULL),
+	(15, 'university2', 'v7UhAHroXy_pzjUKi2TjIv4tWKARYiP2', '$2y$13$c.UjLyBCO2UDtnaotDxCvO5b0xcWeqeMJR9cRxoeQLRZ1lMR8RLRO', NULL, 1, 0, 1621324884, 1621324884, '127.0.0.1', '', '', 0, NULL),
+	(16, 'student1', '6LKMO8eypJHIMeKmoGlSAOFMMhl7NgP1', '$2y$13$PxjL24lxSlSOexz8SVp/U.Dp.Iril8h8SDVFh2SnK4G3pG4o6Frqy', NULL, 1, 0, 1621324927, 1621324927, '127.0.0.1', '', NULL, 0, NULL),
+	(17, 'student2', 'M4Vdd6vLpP6s_fUqBamOUjBouUlRWRsM', '$2y$13$a0kgKfMAkdYY60Uhi1Hh3u2J7N3cSqVMlCCquCDGNAbbCjcW1Xhve', NULL, 1, 0, 1621324949, 1621324949, '127.0.0.1', '', NULL, 0, NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 -- Дамп структуры для таблица contactee.user_visit_log
@@ -607,56 +622,16 @@ CREATE TABLE IF NOT EXISTS `user_visit_log` (
   `os` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=537 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.user_visit_log: ~45 rows (приблизительно)
+-- Дамп данных таблицы contactee.user_visit_log: ~50 rows (приблизительно)
 /*!40000 ALTER TABLE `user_visit_log` DISABLE KEYS */;
 REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `user_id`, `visit_time`, `browser`, `os`) VALUES
-	(492, '6077cc111724e', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 OPR/75.0.3969.149', 3, 1618463761, 'Chrome', 'Windows'),
-	(493, '6077d2fdb0f21', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 OPR/75.0.3969.149', 3, 1618465533, 'Chrome', 'Windows'),
-	(494, '6077d34c28d67', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 OPR/75.0.3969.149', 1, 1618465612, 'Chrome', 'Windows'),
-	(495, '6077d35ab0ccc', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.90 Safari/537.36 OPR/75.0.3969.149', 3, 1618465626, 'Chrome', 'Windows'),
-	(496, '60789fc334cba', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 3, 1618517955, 'Chrome', 'Windows'),
-	(497, '60789fd723a56', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 3, 1618517975, 'Chrome', 'Windows'),
-	(498, '60789ff3ca29d', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 4, 1618518003, 'Chrome', 'Windows'),
-	(499, '6078a011c1697', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 3, 1618518033, 'Chrome', 'Windows'),
-	(500, '6079c4ff1ae7e', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 3, 1618593023, 'Chrome', 'Windows'),
-	(501, '607ac156bc8e5', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.128 Safari/537.36', 3, 1618657622, 'Chrome', 'Windows'),
-	(502, '6087eaa78d7fa', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36', 3, 1619520167, 'Chrome', 'Windows'),
-	(503, '6087eb1be3bf4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36', 5, 1619520283, 'Chrome', 'Windows'),
-	(504, '6087eb2c64774', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36', 5, 1619520300, 'Chrome', 'Windows'),
-	(505, '6087eb356dd45', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36', 3, 1619520309, 'Chrome', 'Windows'),
-	(506, '6087eb49629d8', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.85 Safari/537.36', 5, 1619520329, 'Chrome', 'Windows'),
-	(507, '608810dd313c9', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619529949, 'Chrome', 'Windows'),
-	(508, '6088113d05980', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 5, 1619530045, 'Chrome', 'Windows'),
-	(509, '608812a61c751', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619530406, 'Chrome', 'Windows'),
-	(510, '6088136515bf6', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619530597, 'Chrome', 'Windows'),
-	(511, '6088142c23ba4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 5, 1619530796, 'Chrome', 'Windows'),
-	(512, '6088159a17e05', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 5, 1619531162, 'Chrome', 'Windows'),
-	(513, '608815b585f4a', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619531189, 'Chrome', 'Windows'),
-	(514, '60889025c3d04', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619562533, 'Chrome', 'Windows'),
-	(515, '6088906930696', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 4, 1619562601, 'Chrome', 'Windows'),
-	(516, '60892cfa89520', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619602682, 'Chrome', 'Windows'),
-	(517, '6089381684f09', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619605526, 'Chrome', 'Windows'),
-	(518, '6089414e1bf9f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619607886, 'Chrome', 'Windows'),
-	(519, '608947e66eba4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619609574, 'Chrome', 'Windows'),
-	(520, '608aba1ef3742', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 4, 1619704351, 'Chrome', 'Windows'),
-	(521, '608aba2f6a066', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619704367, 'Chrome', 'Windows'),
-	(522, '608aba4f54a32', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 4, 1619704399, 'Chrome', 'Windows'),
-	(523, '608aba67b18fe', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619704423, 'Chrome', 'Windows'),
-	(524, '608ac085ccef6', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619705989, 'Chrome', 'Windows'),
-	(525, '608c132e074f7', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619792686, 'Chrome', 'Windows'),
-	(526, '608c2ff7aaee4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1619800055, 'Chrome', 'Windows'),
-	(527, '6091482eaadfb', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36', 3, 1620133934, 'Chrome', 'Windows'),
-	(528, '609e97d861e24', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36', 3, 1621006296, 'Chrome', 'Windows'),
-	(529, '60a148c8b7ede', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621182664, 'Chrome', 'Windows'),
-	(530, '60a14956d0669', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 4, 1621182806, 'Chrome', 'Windows'),
-	(531, '60a1496f68fa8', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621182831, 'Chrome', 'Windows'),
-	(532, '60a21ece6fcea', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621237454, 'Chrome', 'Windows'),
-	(533, '60a222401399f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621238336, 'Chrome', 'Windows'),
-	(534, '60a24029db9f4', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621245993, 'Chrome', 'Windows'),
-	(535, '60a2438c82df1', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621246860, 'Chrome', 'Windows'),
-	(536, '60a245881e3b0', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 3, 1621247368, 'Chrome', 'Windows');
+	(549, '60a372e71a6f5', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621324519, 'Chrome', 'Windows'),
+	(550, '60a3747f4450f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 16, 1621324927, 'Chrome', 'Windows'),
+	(551, '60a3749576b7c', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 17, 1621324949, 'Chrome', 'Windows'),
+	(552, '60a37fcee5a07', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621327822, 'Chrome', 'Windows'),
+	(553, '60a37fd888e63', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 13, 1621327832, 'Chrome', 'Windows');
 /*!40000 ALTER TABLE `user_visit_log` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
