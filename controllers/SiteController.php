@@ -153,13 +153,6 @@ class SiteController extends Controller
         return $this->render('search');
     }
 
-//    public function actionStudentsapplication()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('studentsapplication/studentsapplication', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
     public function actionApplicationlist()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -195,19 +188,4 @@ class SiteController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-//    public function actionProfile()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('studentsapplication/profile', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-//    public function actionMyapplications()
-//    {
-//        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-//        return $this->render('studentsapplication/myapplications', [
-//            'dataProvider' => $dataProvider,
-//        ]);
-//    }
-
 }
