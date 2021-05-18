@@ -122,31 +122,37 @@ AppAsset::register($this);
 
 		    ['label' => 'Главная', 'url' => ['/site/index'], 'visible' => !Yii::$app->user->isGuest],
 			[
-			'label' => 'Разделы МОН',
+			'label' => 'МОиН',
 			'items'=>[
-				['label' => 'Список ВУЗов МОН', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Список ПК МОН', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Список всех заявок МОН', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Список отчетов МОН', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],	
+				['label' => 'Список приемных комиссий', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Список заявок от студентов1', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Отчеты', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],				
 			],],
 			[
-			'label' => 'Разделы МИД',
+			'label' => 'Справочники',
 			'items'=>[
-				['label' => 'Список заявлений на визу МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+				['label' => 'Список ВУЗов', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Дисциплины', 'url' => ['#'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],		
+				['label' => 'Страны', 'url' => ['#'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],				
 			],],
 			[
-			'label' => 'Разделы ПК',
+			'label' => 'Мид',
 			'items'=>[
-				['label' => 'Список заявителей ПК', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
-				['label' => 'Список отчетов ПК', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+				['label' => 'Список заявлений на визу в МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+			],],
+			[
+			'label' => 'Приемная комиссия',
+			'items'=>[
+				['label' => 'Список заявок от студентов2', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+				['label' => 'Отчеты', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 				['label' => 'Экзамены ПК', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 			],],
 			[
-			'label' => 'Разделы абитура',
+			'label' => 'Разделы АБ',
 			'items'=>[
-				['label' => 'Подача заявления АБ', 'url' => ['/student/studentsapplication'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Профайл АБ', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Мои заявки АБ', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Подать заявление', 'url' => ['/student/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Профиль', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Мои заявки', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 				['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 			],],
 			//['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],

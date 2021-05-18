@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.auth_assignment: ~3 rows (приблизительно)
+-- Дамп данных таблицы contactee.auth_assignment: ~6 rows (приблизительно)
 /*!40000 ALTER TABLE `auth_assignment` DISABLE KEYS */;
 REPLACE INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 	('Mid', 13, 1621324742),
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `auth_item` (
   KEY `fk_auth_item_group_code` (`group_code`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.auth_item: ~80 rows (приблизительно)
+-- Дамп данных таблицы contactee.auth_item: ~83 rows (приблизительно)
 /*!40000 ALTER TABLE `auth_item` DISABLE KEYS */;
 REPLACE INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `created_at`, `updated_at`, `group_code`) VALUES
 	('/*', 3, NULL, NULL, NULL, 1553116978, 1553116978, NULL),
@@ -143,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `auth_item_child` (
   KEY `child` (`child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.auth_item_child: ~28 rows (приблизительно)
+-- Дамп данных таблицы contactee.auth_item_child: ~32 rows (приблизительно)
 /*!40000 ALTER TABLE `auth_item_child` DISABLE KEYS */;
 REPLACE INTO `auth_item_child` (`parent`, `child`) VALUES
 	('Admin', 'assignRolesToUsers'),
@@ -171,9 +171,9 @@ REPLACE INTO `auth_item_child` (`parent`, `child`) VALUES
 	('editUsers', '/user-management/user/update'),
 	('editUsers', 'viewUsers'),
 	('Mid', 'changeOwnPassword'),
+	('Mon', 'Admin'),
 	('Mon', 'changeOwnPassword'),
 	('Student', 'changeOwnPassword'),
-	('University', 'Admin'),
 	('University', 'changeOwnPassword'),
 	('viewUsers', '/user-management/user/grid-page-size'),
 	('viewUsers', '/user-management/user/index'),
@@ -597,7 +597,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`id_university`) REFERENCES `university` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.user: ~3 rows (приблизительно)
+-- Дамп данных таблицы contactee.user: ~7 rows (приблизительно)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 REPLACE INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `confirmation_token`, `status`, `superadmin`, `created_at`, `updated_at`, `registration_ip`, `bind_to_ip`, `email`, `email_confirmed`, `id_university`) VALUES
 	(1, 'superadmin', 'FA8pa808MoGF13R6Yu1Iku76znqnM9bH', '$2y$13$Go.CXY0lDzfqSghCL57B2.xJKjvSFuHrOQrrwtjzX7Ir1ki1mgZma', NULL, 1, 1, 1553116976, 1553116976, NULL, NULL, NULL, 0, 0),
@@ -624,14 +624,18 @@ CREATE TABLE IF NOT EXISTS `user_visit_log` (
   KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=554 DEFAULT CHARSET=utf8;
 
--- Дамп данных таблицы contactee.user_visit_log: ~50 rows (приблизительно)
+-- Дамп данных таблицы contactee.user_visit_log: ~5 rows (приблизительно)
 /*!40000 ALTER TABLE `user_visit_log` DISABLE KEYS */;
 REPLACE INTO `user_visit_log` (`id`, `token`, `ip`, `language`, `user_agent`, `user_id`, `visit_time`, `browser`, `os`) VALUES
 	(549, '60a372e71a6f5', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621324519, 'Chrome', 'Windows'),
 	(550, '60a3747f4450f', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 16, 1621324927, 'Chrome', 'Windows'),
 	(551, '60a3749576b7c', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 17, 1621324949, 'Chrome', 'Windows'),
 	(552, '60a37fcee5a07', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621327822, 'Chrome', 'Windows'),
-	(553, '60a37fd888e63', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 13, 1621327832, 'Chrome', 'Windows');
+	(553, '60a37fd888e63', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 13, 1621327832, 'Chrome', 'Windows'),
+	(554, '60a3834c71245', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621328716, 'Chrome', 'Windows'),
+	(555, '60a385e12841b', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 15, 1621329377, 'Chrome', 'Windows'),
+	(556, '60a385e903a06', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 12, 1621329385, 'Chrome', 'Windows'),
+	(557, '60a3861162e06', '127.0.0.1', 'ru', 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 OPR/76.0.4017.107', 1, 1621329425, 'Chrome', 'Windows');
 /*!40000 ALTER TABLE `user_visit_log` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
