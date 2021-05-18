@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\StudentRegistrationSearch;
 use Yii;
 use app\models\StudentRegistration;
+use yii\base\BaseObject;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -125,6 +126,7 @@ class StudentController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+    //АБ списки всех поданных заялений:  view-> student/studentsapplication
     public function actionStudentsapplication()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -132,13 +134,7 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-    public function actionApplicationlist()
-    {
-        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
-        return $this->render('applicationlist', [
-            'dataProvider' => $dataProvider,
-        ]);
-    }
+    //ВУЗ аналитика :  view->site/applicationlist/analitikavuz
     public function actionAnalitikavuz()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -146,6 +142,7 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    //ВУЗ списки отчетов :  view->site/applicationlist/universityreport
     public function actionUniversityreport()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -153,6 +150,7 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    //ВУЗ экзамены :  view->site/applicationlist/universityexams
     public function actionUniversityexams()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -160,7 +158,8 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-	
+
+    //ВУЗ новости с МОН :  view->site/applicationlist/universitynews
     public function actionUniversitynews()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -168,6 +167,8 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    //АБ анкета абитуриента:  view-> student/profile
     public function actionProfile()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
@@ -175,6 +176,8 @@ class StudentController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
+    //АБ список ВУЗов поданных заявлений:  view-> student/myapplications
     public function actionMyapplications()
     {
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
