@@ -46,6 +46,19 @@ $config = [
             // 'useFileTransport' to false and configure a transport
             // for the mailer to send real emails.
             'useFileTransport' => true,
+			/*'transport' => [
+				'class'      => 'Swift_SmtpTransport', 
+				'host' => 'smtp.xyz.com',
+				'username'   => 'username',
+				'password' => 'password',
+				'port' => '587',
+				'encryption' => 'tls',
+				'plugins'    => [
+					[
+						'class' => 'Openbuildings\Swiftmailer\CssInlinerPlugin',
+					],
+				],
+			],*/
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -85,7 +98,7 @@ $config = [
 	'user-management' => [
 		'class' => 'webvimark\modules\UserManagement\UserManagementModule',
 
-		 'enableRegistration' => true,
+		 //'enableRegistration' => true,
 
 		// Add regexp validation to passwords. Default pattern does not restrict user and can enter any set of characters.
 		// The example below allows user to enter :

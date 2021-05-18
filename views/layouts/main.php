@@ -12,6 +12,7 @@ use app\assets\AppAsset;
 
 use webvimark\modules\UserManagement\components\GhostNav;
 use webvimark\modules\UserManagement\UserManagementModule;
+use webvimark\modules\UserManagement\models\User;
 
 AppAsset::register($this);
 ?>
@@ -123,30 +124,30 @@ AppAsset::register($this);
 			[
 			'label' => 'Разделы МОН',
 			'items'=>[
-				['label' => 'Список ВУЗов МОН', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Список ПК МОН', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Список всех заявок МОН', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Список отчетов МОН', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest],	
+				['label' => 'Список ВУЗов МОН', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Список ПК МОН', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Список всех заявок МОН', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Список отчетов МОН', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],	
 			],],
 			[
 			'label' => 'Разделы МИД',
 			'items'=>[
-				['label' => 'Список заявлений на визу МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest],
+				['label' => 'Список заявлений на визу МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 			],],
 			[
 			'label' => 'Разделы ПК',
 			'items'=>[
-				['label' => 'Список заявителей ПК', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Список отчетов ПК', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Экзамены ПК', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest],
+				['label' => 'Список заявителей ПК', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+				['label' => 'Список отчетов ПК', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+				['label' => 'Экзамены ПК', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 			],],
 			[
 			'label' => 'Разделы абитура',
 			'items'=>[
-				['label' => 'Подача заявления АБ', 'url' => ['/student/studentsapplication'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Профайл АБ', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Мои заявки АБ', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest],
-				['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest],
+				['label' => 'Подача заявления АБ', 'url' => ['/student/studentsapplication'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Профайл АБ', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Мои заявки АБ', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 			],],
 			//['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
             //['label' => 'Контакты', 'url' => ['/site/contact'], 'visible' => !Yii::$app->user->isGuest],
