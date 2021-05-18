@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\StudentRegistrationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Student Registrations';
+$this->title = 'Список заявлений на визу';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-registration-index">
@@ -15,9 +15,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Student Registration', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -50,14 +47,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id_uni_5',
             //'id_program_5',
             //'datetime_reg_5',
-            //'id_uni_accepted_1',
-            //'id_uni_accepted_2',
-            //'id_uni_accepted_3',
-            //'id_uni_accepted_4',
-            //'id_uni_accepted_5',
-            //'visa',
-            //'datetime_visa',
-            //'status_visa',
+            'id_uni_accepted_1',
+            'id_uni_accepted_2',
+            'id_uni_accepted_3',
+            'id_uni_accepted_4',
+            'id_uni_accepted_5',
+            'visa',
+            'datetime_visa',
+            'status_visa',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

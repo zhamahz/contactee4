@@ -7,17 +7,13 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\StudentRegistrationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Student Registrations';
+$this->title = 'Список заявлений иностранных абитуриентов';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="student-registration-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Student Registration', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
