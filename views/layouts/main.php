@@ -124,21 +124,21 @@ AppAsset::register($this);
 			[
 			'label' => 'МОиН',
 			'items'=>[
-				['label' => 'Список приемных комиссий', 'url' => ['/university/indexmoncommitet'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Список заявок от студентов1', 'url' => ['/university/indexmonlistapplic'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Отчеты', 'url' => ['/university/indexmonreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],				
+				['label' => 'Список приемных комиссий', 'url' => ['/user2/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Список заявок от студентов1', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Отчеты', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
 			],],
 			[
 			'label' => 'Справочники',
 			'items'=>[
-				['label' => 'Список ВУЗов', 'url' => ['/university/indexmon'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-				['label' => 'Дисциплины', 'url' => ['#'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],		
-				['label' => 'Страны', 'url' => ['#'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],				
+				['label' => 'Список ВУЗов', 'url' => ['/university/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Дисциплины', 'url' => ['/programs/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+				['label' => 'Страны', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
 			],],
 			[
 			'label' => 'Мид',
 			'items'=>[
-				['label' => 'Список заявлений на визу в МИД', 'url' => ['/university/indexmidvisalist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+				['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 			],],
 			[
 			'label' => 'Приемная комиссия',
