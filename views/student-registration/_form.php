@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
+<!--    --><?//= $form->field($model, 'id_user')->textInput() ?>
 
     <?= $form->field($model, 'fullname')->textInput(['maxlength' => true]) ?>
 
@@ -75,8 +75,6 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'datetime_visa')->textInput() ?>
 
     <?= $form->field($model, 'status_visa')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'status_vuz')->textarea(['rows' => 6]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

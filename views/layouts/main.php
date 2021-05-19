@@ -150,10 +150,10 @@ AppAsset::register($this);
 			[
 			'label' => 'Разделы АБ',
 			'items'=>[
-				['label' => 'Форма подачи заявления', 'url' => ['/student/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Профиль', 'url' => ['/student/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Поданные заявления', 'url' => ['/student/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-				['label' => 'Экзамены АБ', 'url' => ['/student/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Форма подачи заявления', 'url' => ['/student-registration/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Профиль', 'url' => ['/student-registration/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Поданные заявления', 'url' => ['/student-registration/myapplications'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+				['label' => 'Экзамены АБ', 'url' => ['/student-registration/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 			],],
 			//['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
             //['label' => 'Контакты', 'url' => ['/site/contact'], 'visible' => !Yii::$app->user->isGuest],
