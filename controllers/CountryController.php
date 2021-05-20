@@ -124,4 +124,14 @@ class CountryController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+    public function actionPie()	{
+        $dataProvider = new ActiveDataProvider([
+            'query' => Country::find(),
+            'pagination' => false
+        ]);
+
+        return $this->render('pie', [
+            'dataProvider' => $dataProvider
+        ]);
+    }
 }
