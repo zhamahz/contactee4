@@ -5,12 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\StudentRegistration */
 
-$this->title = 'Update Student Registration: ' . $model->id;
+$this->title = 'Заполнение профайла';
 $this->params['breadcrumbs'][] = ['label' => 'Student Registrations', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="student-registration-update">
+<div class="student-registration-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

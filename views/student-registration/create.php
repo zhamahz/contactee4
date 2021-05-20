@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\StudentRegistration */
 
-$this->title = 'Create Student Registration';
+$this->title = 'Подать заявление';
 $this->params['breadcrumbs'][] = ['label' => 'Student Registrations', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
