@@ -1,7 +1,11 @@
-<?php
+    <?php
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use sjaakp\gcharts\PieChart;
+use yii\data\ActiveDataProvider;
+
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\CountrySearch */
@@ -19,7 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Create Country', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
+
     <?= GridView::widget([
+
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
@@ -31,4 +37,15 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
+    <?= PieChart::widget([
+        'height' => '400px',
+        'dataProvider' => $dataProvider,
+        'columns' => [
+            'name:string',
+            'id'
+        ],
+        'options' => [
+            'title' => 'Countries by Population'
+        ],
+    ]) ?>
 </div>
