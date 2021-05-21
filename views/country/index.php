@@ -11,7 +11,7 @@ use yii\data\ActiveDataProvider;
 /* @var $searchModel app\models\CountrySearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Countries';
+$this->title = 'Список стран';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="country-index">
@@ -19,9 +19,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Country', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
 
     <?= GridView::widget([
@@ -31,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'name',
 
-            ['class' => 'yii\grid\ActionColumn'],
+      ['class' => 'yii\grid\ActionColumn', 'template' => '{update}'],
         ],
     ]); ?>
     <?= PieChart::widget([
