@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
+use app\models\UniversitySearch;
 use Yii;
 use app\models\StudentRegistration;
 use app\models\StudentRegistrationSearch;
+use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -44,6 +46,16 @@ class StudentRegistrationController extends Controller
         ]);
     }
 
+    public function actionAcceptedUni()
+    {
+        $searchModel = new StudentRegistrationSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('accepted_uni', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single StudentRegistration model.
      * @param integer $id
@@ -65,12 +77,26 @@ class StudentRegistrationController extends Controller
     public function actionCreate()
     {
         $model = new StudentRegistration();
-
+        $model->id_user=16;
+//        $model->id_user=Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+    public function actionProfile()
+    {
+        $model = new StudentRegistration();
+//        $model->id_user=Yii::$app->user->identity->id;
+        $model->id_user=16;
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('profile', [
             'model' => $model,
         ]);
     }

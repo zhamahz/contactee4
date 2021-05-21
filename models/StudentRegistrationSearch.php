@@ -18,7 +18,7 @@ class StudentRegistrationSearch extends StudentRegistration
     {
         return [
             [['id', 'id_user', 'id_country', 'id_uni_1', 'id_program_1', 'id_uni_2', 'id_program_2', 'id_uni_3', 'id_program_3', 'id_uni_4', 'id_program_4', 'id_uni_5', 'id_program_5', 'id_uni_accepted_1', 'id_uni_accepted_2', 'id_uni_accepted_3', 'id_uni_accepted_4', 'id_uni_accepted_5'], 'integer'],
-            [['fullname', 'gender', 'birthday', 'email', 'photo_passport', 'pdf_attestat', 'pdf_motivation', 'datetime_reg_1', 'datetime_reg_2', 'datetime_reg_3', 'datetime_reg_4', 'datetime_reg_5', 'visa', 'datetime_visa', 'status_visa', 'status_vuz'], 'safe'],
+            [['fullname', 'gender', 'birthday', 'email', 'photo_passport', 'pdf_attestat', 'pdf_motivation', 'datetime_reg_1', 'datetime_reg_2', 'datetime_reg_3', 'datetime_reg_4', 'datetime_reg_5', 'visa', 'datetime_visa', 'status_visa'], 'safe'],
         ];
     }
 
@@ -92,8 +92,7 @@ class StudentRegistrationSearch extends StudentRegistration
             ->andFilterWhere(['like', 'pdf_attestat', $this->pdf_attestat])
             ->andFilterWhere(['like', 'pdf_motivation', $this->pdf_motivation])
             ->andFilterWhere(['like', 'visa', $this->visa])
-            ->andFilterWhere(['like', 'status_visa', $this->status_visa])
-            ->andFilterWhere(['like', 'status_vuz', $this->status_vuz]);
+            ->andFilterWhere(['like', 'status_visa', $this->status_visa]);
 
         return $dataProvider;
     }
