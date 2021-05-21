@@ -45,7 +45,7 @@ class Programs extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'speciality' => 'Speciality',
+            'speciality' => 'Специальность',
         ];
     }
 

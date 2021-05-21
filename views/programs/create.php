@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Programs */
 
-$this->title = 'Create Programs';
-$this->params['breadcrumbs'][] = ['label' => 'Programs', 'url' => ['index']];
+$this->title = 'Создать специальность';
+$this->params['breadcrumbs'][] = ['label' => 'Специальность', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="programs-create">

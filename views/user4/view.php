@@ -4,14 +4,14 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\University */
+/* @var $model app\models\User4 */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'ВУЗ', 'url' => ['index']];
+$this->title = $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Приемная комиссия', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="university-view">
+<div class="user4-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
@@ -30,10 +30,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'name',
-            'type',
-            'address',
+            'username',
+            'auth_key',
+            'password_hash',
+            'confirmation_token',
+            'status',
+            'superadmin',
+            'created_at',
+            'updated_at',
+            'registration_ip',
+            'bind_to_ip',
             'email:email',
+            'email_confirmed:email',
+            'id_university',
         ],
     ]) ?>
 

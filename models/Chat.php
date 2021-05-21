@@ -44,8 +44,8 @@ class Chat extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'text' => 'Text',
-            'file' => 'File',
+            'text' => 'Текст',
+            'file' => 'Файл',
             'id_user' => 'Id User',
         ];
     }
