@@ -13,7 +13,9 @@ use Yii;
  * @property int $id_country
  * @property int $id_speciality
  * @property string $status1
+ * @property string $date1
  * @property string $status2
+ * @property string $date2
  * @property string $dop
  *
  * @property Country $country
@@ -38,6 +40,7 @@ class Abitur extends \yii\db\ActiveRecord
         return [
             [['fullname', 'id_university', 'id_country', 'id_speciality', 'status1', 'status2', 'dop'], 'required'],
             [['id_university', 'id_country', 'id_speciality'], 'integer'],
+            [['date1', 'date2'], 'safe'],
             [['fullname', 'status1', 'status2', 'dop'], 'string', 'max' => 255],
             [['id_country'], 'exist', 'skipOnError' => true, 'targetClass' => Country::className(), 'targetAttribute' => ['id_country' => 'id']],
             [['id_speciality'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_speciality' => 'id']],
@@ -52,12 +55,14 @@ class Abitur extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fullname' => 'Fullname',
-            'id_university' => 'Id University',
-            'id_country' => 'Id Country',
-            'id_speciality' => 'Id Speciality',
-            'status1' => 'Status1',
-            'status2' => 'Status2',
+            'fullname' => 'ФИО',
+            'id_university' => 'Название ВУЗа',
+            'id_country' => 'Название страны',
+            'id_speciality' => 'Специальность',
+            'status1' => 'Статус заявления',
+            'date1' => 'Дата',
+            'status2' => 'Статус заявления на визу',
+            'date2' => 'Дата',
             'dop' => 'Dop',
         ];
     }
