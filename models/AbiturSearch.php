@@ -11,6 +11,10 @@ use app\models\Abitur;
  */
 class AbiturSearch extends Abitur
 {
+    public $univerName;
+    public $countryName;
+    public $programmsName;
+
     /**
      * {@inheritdoc}
      */
@@ -18,7 +22,7 @@ class AbiturSearch extends Abitur
     {
         return [
             [['id', 'id_university', 'id_country', 'id_speciality'], 'integer'],
-            [['fullname', 'status1', 'date1', 'status2', 'date2', 'dop'], 'safe'],
+            [['fullname', 'status1', 'date1', 'status2', 'date2', 'dop', 'univerName', 'countryName', 'programmsName'], 'safe'],
         ];
     }
 
@@ -41,12 +45,27 @@ class AbiturSearch extends Abitur
     public function search($params)
     {
         $query = Abitur::find();
-
+        $query->joinWith(['university']);
+        $query->joinWith(['speciality']);
+        $query->joinWith(['country']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+        $dataProvider->sort->attributes['univerName'] = [
+            'asc' => [University::tableName() . '.name' => SORT_ASC],
+            'desc' => [University::tableName() . '.name' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['countryName'] = [
+            'asc' => [Programs::tableName() . '.speciality' => SORT_ASC],
+            'desc' => [Programs::tableName() . '.speciality' => SORT_DESC],
+        ];
+        $dataProvider->sort->attributes['programmsName'] = [
+            'asc' => [Country::tableName() . '.name' => SORT_ASC],
+            'desc' => [Country::tableName() . '.name' => SORT_DESC],
+        ];
+
 
         $this->load($params);
 
@@ -57,20 +76,22 @@ class AbiturSearch extends Abitur
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'id_university' => $this->id_university,
-            'id_country' => $this->id_country,
-            'id_speciality' => $this->id_speciality,
-            'date1' => $this->date1,
-            'date2' => $this->date2,
-        ]);
+//        $query->andFilterWhere([
+//            'id' => $this->id,
+//            'id_university' => $this->id_university,
+//            'id_country' => $this->id_country,
+//            'id_speciality' => $this->id_speciality,
+//            'date1' => $this->date1,
+//            'date2' => $this->date2,
+//        ]);
 
         $query->andFilterWhere(['like', 'fullname', $this->fullname])
+            ->andFilterWhere(['like', University::tableName() . '.name', $this->univerName])
+            ->andFilterWhere(['like', Country::tableName() . '.name', $this->countryName])
+            ->andFilterWhere(['like', Programs::tableName() . '.speciality', $this->programmsName])
             ->andFilterWhere(['like', 'status1', $this->status1])
             ->andFilterWhere(['like', 'status2', $this->status2])
             ->andFilterWhere(['like', 'dop', $this->dop]);
-
         return $dataProvider;
     }
 }

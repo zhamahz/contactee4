@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\University;
 use Yii;
 use app\models\Abitur;
 use app\models\AbiturSearch;
@@ -123,5 +124,15 @@ class AbiturController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    /**
+     * Displays about page. Отчет
+     *
+     * @return string
+     */
+    public function actionIndex1()
+    {
+        return $this->render('index1');
     }
 }

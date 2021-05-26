@@ -15,10 +15,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Abitur', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<!---->
+<!--    <p>-->
+<!--        --><?//= Html::a('Create Abitur', ['create'], ['class' => 'btn btn-success']) ?>
+<!--    </p>-->
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -26,17 +26,22 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_university',
-            'fullname',
-            'id_country',
-            'id_speciality',
-            'status1',
-            'date1',
+           // 'id',
+            //'id_university',
+            //'fullname',
+            //'id_country',
+           // 'id_speciality',
+            //'status1',
+            //'date1',
             //'status2',
             //'date2',
             //'dop',
-
+            ['attribute' => 'univerName', 'value'=>'university.name', 'label'=>'ВУЗ'],
+            ['attribute' => 'fullname'],
+            ['attribute' => 'countryName', 'value'=>'country.name', 'label'=>'Страна'],
+            ['attribute' => 'programmsName', 'value'=>'speciality.speciality', 'label'=>'Специальность'],
+            ['attribute' => 'status1'],
+            ['attribute' => 'date1'],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

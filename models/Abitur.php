@@ -38,7 +38,7 @@ class Abitur extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['fullname', 'id_university', 'id_country', 'id_speciality', 'status1', 'status2', 'dop'], 'required'],
+            [['fullname', 'id_university', 'id_country', 'id_speciality', 'status1', 'status2'], 'required'],
             [['id_university', 'id_country', 'id_speciality'], 'integer'],
             [['date1', 'date2'], 'safe'],
             [['fullname', 'status1', 'status2', 'dop'], 'string', 'max' => 255],
