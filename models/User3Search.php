@@ -4,12 +4,12 @@ namespace app\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\User2;
+use app\models\User3;
 
 /**
- * User2Search represents the model behind the search form of `app\models\User2`.
+ * User3Search represents the model behind the search form of `app\models\User3`.
  */
-class User2Search extends User2
+class User3Search extends User3
 {
     /**
      * {@inheritdoc}
@@ -40,7 +40,7 @@ class User2Search extends User2
      */
     public function search($params)
     {
-        $query = User2::find();
+        $query = User3::find();
 
         // add conditions that should always apply here
 

@@ -3,16 +3,16 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\User2;
-use app\models\User2Search;
+use app\models\User3;
+use app\models\User3Search;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * User2Controller implements the CRUD actions for User2 model.
+ * User3Controller implements the CRUD actions for User3 model.
  */
-class User2Controller extends Controller
+class User3Controller extends Controller
 {
     /**
      * {@inheritdoc}
@@ -30,12 +30,12 @@ class User2Controller extends Controller
     }
 
     /**
-     * Lists all User2 models.
+     * Lists all User3 models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new User2Search();
+        $searchModel = new User3Search();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,7 +45,7 @@ class User2Controller extends Controller
     }
 
     /**
-     * Displays a single User2 model.
+     * Displays a single User3 model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -58,13 +58,13 @@ class User2Controller extends Controller
     }
 
     /**
-     * Creates a new User2 model.
+     * Creates a new User3 model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new User2();
+        $model = new User3();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -76,7 +76,7 @@ class User2Controller extends Controller
     }
 
     /**
-     * Updates an existing User2 model.
+     * Updates an existing User3 model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -96,7 +96,7 @@ class User2Controller extends Controller
     }
 
     /**
-     * Deletes an existing User2 model.
+     * Deletes an existing User3 model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -110,15 +110,15 @@ class User2Controller extends Controller
     }
 
     /**
-     * Finds the User2 model based on its primary key value.
+     * Finds the User3 model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return User2 the loaded model
+     * @return User3 the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = User2::findOne($id)) !== null) {
+        if (($model = User3::findOne($id)) !== null) {
             return $model;
         }
 
