@@ -11,7 +11,8 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii2mod\query\ArrayQuery;
+use yii\db\ActiveQuery;
 /**
  * UniversityController implements the CRUD actions for University model.
  */
@@ -132,6 +133,22 @@ class UniversityController extends Controller
         $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
         return $this->render('applicationlist', [
             'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionIndex1()
+    {
+        $q = University::find()
+            ->where(['name' => 'INAI'])
+            ->groupBy(['promoter_location_id', 'lead_type_id'])
+            ->all();
+        $query = new ArrayQuery();
+        $query->from($q);
+        $query1 = $query->count();
+
+        return $this->render('index1', [
+            'query' => $q,
+            'query1' => $query1,
         ]);
     }
 }

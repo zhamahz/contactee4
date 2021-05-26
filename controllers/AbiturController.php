@@ -6,10 +6,12 @@ use app\models\University;
 use Yii;
 use app\models\Abitur;
 use app\models\AbiturSearch;
+use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii2mod\query\ArrayQuery;
+use yii\db\ActiveQuery;
 /**
  * AbiturController implements the CRUD actions for Abitur model.
  */
@@ -133,6 +135,16 @@ class AbiturController extends Controller
      */
     public function actionIndex1()
     {
-        return $this->render('index1');
+        $q = Abitur::find()
+            ->where(['id_university' => 4 ])
+            ->all();
+        $query = new ArrayQuery();
+        $query->from($q);
+        $query1 = $query->count();
+
+        return $this->render('index1', [
+            'query' => $q,
+            'query1' => $query1,
+        ]);
     }
 }
