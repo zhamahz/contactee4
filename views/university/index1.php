@@ -25,7 +25,7 @@ $this->title = 'Министерство образования и науки К
     <tbody>
     <?php  foreach($query as $t): ?>
         <tr>
-            <td><?=$t->id_university;?></td>
+            <td><?=$t->name;?></td>
         </tr>
     <?php endforeach;?>
     <tbody>
