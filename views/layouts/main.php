@@ -151,16 +151,14 @@ AppAsset::register($this);
                 ['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
                 ['label' => 'Аналитика', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 
-                [
-                    'label' => 'Приемная комиссия',
-                    'items' => [
-                        ['label' => 'Список заявок от студентов2', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
-                        ['label' => 'Отчеты', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
-                        ['label' => 'Экзамены ПК', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
-                    ],],
+
+                ['label' => 'Список заявлений', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Отчеты', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Экзамены ', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+
                 ['label' => 'Профиль', 'url' => ['/student-registration/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
                 ['label' => 'Форма подачи заявления', 'url' => ['/student-registration/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-                ['label' => 'Поданные заявления', 'url' => ['/student-registration/accepted_uni'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+                ['label' => 'Поданные заявления', 'url' => ['/student-registration/myapplicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
                 ['label' => 'Экзамены АБ', 'url' => ['/student-registration/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 
                 //['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
@@ -172,10 +170,10 @@ AppAsset::register($this);
 //				['label' => 'Тест2', 'url' => ['/university/indexmon2'], 'visible' => !Yii::$app->user->isGuest],
 //				['label' => 'Тест3', 'url' => ['/university/index4'], 'visible' => !Yii::$app->user->isGuest],
 //			],],
-			[
-				'label' => 'Пользователи',
-				'items'=>UserManagementModule::menuItems()
-			],
+                [
+                    'label' => 'Пользователи',
+                    'items' => UserManagementModule::menuItems()
+                ],
                 //[
                 ['label' => 'Сменить пароль', 'url' => ['/user-management/auth/change-own-password'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Выйти (' . Yii::$app->user->identity->username . ')', 'url' => ['/user-management/auth/logout']],

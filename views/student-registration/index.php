@@ -15,9 +15,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Student Registration', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+<!--    <p>-->
+<!--        --><?//= Html::a('Create Student Registration', ['create'], ['class' => 'btn btn-success']) ?>
+<!--    </p>-->
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_user',
-            'fullname',
-            'gender',
-            'birthday',
+//            'id',
+//            'id_user',
+//            'fullname',
+//            'gender',
+//            'birthday',
             //'id_country',
             //'email:email',
             //'photo_passport',
@@ -58,7 +58,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'visa',
             //'datetime_visa',
             //'status_visa:ntext',
-            //'status_vuz:ntext',
+            'status_vuz:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

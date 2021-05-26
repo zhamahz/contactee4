@@ -15,15 +15,15 @@ use yii\widgets\ActiveForm;
         'method' => 'get',
     ]); ?>
 
-    <?= $form->field($model, 'id') ?>
-
-    <?= $form->field($model, 'id_user') ?>
-
-    <?= $form->field($model, 'fullname') ?>
-
-    <?= $form->field($model, 'gender') ?>
-
-    <?= $form->field($model, 'birthday') ?>
+<!--    --><?//= $form->field($model, 'id') ?>
+<!---->
+<!--    --><?//= $form->field($model, 'id_user') ?>
+<!---->
+<!--    --><?//= $form->field($model, 'fullname') ?>
+<!---->
+<!--    --><?//= $form->field($model, 'gender') ?>
+<!---->
+<!--    --><?//= $form->field($model, 'birthday') ?>
 
     <?php // echo $form->field($model, 'id_country') ?>
 
@@ -65,21 +65,21 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'datetime_reg_5') ?>
 
-    <?php // echo $form->field($model, 'id_uni_accepted_1') ?>
+    <?php  echo $form->field($model, 'id_uni_accepted_1') ?>
 
-    <?php // echo $form->field($model, 'id_uni_accepted_2') ?>
+    <?php  echo $form->field($model, 'id_uni_accepted_2') ?>
 
-    <?php // echo $form->field($model, 'id_uni_accepted_3') ?>
+    <?php  echo $form->field($model, 'id_uni_accepted_3') ?>
 
-    <?php // echo $form->field($model, 'id_uni_accepted_4') ?>
+    <?php  echo $form->field($model, 'id_uni_accepted_4') ?>
 
-    <?php // echo $form->field($model, 'id_uni_accepted_5') ?>
+    <?php  echo $form->field($model, 'id_uni_accepted_5') ?>
 
     <?php // echo $form->field($model, 'visa') ?>
 
     <?php // echo $form->field($model, 'datetime_visa') ?>
 
-    <?php // echo $form->field($model, 'status_visa') ?>
+    <?php  echo $form->field($model, 'status_visa') ?>
 
     <?php // echo $form->field($model, 'status_vuz') ?>
 

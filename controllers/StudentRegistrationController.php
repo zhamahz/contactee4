@@ -7,6 +7,7 @@ use Yii;
 use app\models\StudentRegistration;
 use app\models\StudentRegistrationSearch;
 use yii\base\BaseObject;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -77,8 +78,9 @@ class StudentRegistrationController extends Controller
     public function actionCreate()
     {
         $model = new StudentRegistration();
-        $model->id_user=16;
-//        $model->id_user=Yii::$app->user->identity->id;
+//        $model->id_user = Yii::$app->user->identity->id;
+//        $model->id_user = 16;
+        $model->id_user=Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -87,11 +89,12 @@ class StudentRegistrationController extends Controller
             'model' => $model,
         ]);
     }
+
     public function actionProfile()
     {
         $model = new StudentRegistration();
-//        $model->id_user=Yii::$app->user->identity->id;
-        $model->id_user=16;
+//        $model->id_user = Yii::$app->user->identity->id;
+//        $model->id_user=16;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -149,5 +152,13 @@ class StudentRegistrationController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+    //АБ список ВУЗов поданных заявлений:  view-> student/myapplications
+    public function actionMyapplicationlist()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('myapplicationlist', [
+            'dataProvider' => $dataProvider,
+        ]);
     }
 }
