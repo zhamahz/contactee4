@@ -27,7 +27,11 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'status1') ?>
 
+    <?php // echo $form->field($model, 'date1') ?>
+
     <?php // echo $form->field($model, 'status2') ?>
+
+    <?php // echo $form->field($model, 'date2') ?>
 
     <?php // echo $form->field($model, 'dop') ?>
 

@@ -137,8 +137,8 @@ AppAsset::register($this);
 
                 ['label' => 'Главная', 'url' => ['/site/index'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Списки Приемной комиссии', 'url' => ['/user4/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-                ['label' => 'Заявления', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-                ['label' => 'Отчеты', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+                ['label' => 'Заявления', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+                ['label' => 'Отчеты', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Объявления', 'url' => ['/chat/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 [
                     'label' => 'Справочники',
@@ -149,7 +149,7 @@ AppAsset::register($this);
                     ],],
 ///////////////////
                 ['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
-                ['label' => 'Аналитика', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Аналитика', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 
 
                 ['label' => 'Список заявлений', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],

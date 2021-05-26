@@ -22,7 +22,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status1')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'date1')->textInput() ?>
+
     <?= $form->field($model, 'status2')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'date2')->textInput() ?>
 
     <?= $form->field($model, 'dop')->textInput(['maxlength' => true]) ?>
 
