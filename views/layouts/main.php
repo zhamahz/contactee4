@@ -135,10 +135,10 @@ AppAsset::register($this);
             'activateParents' => true,
             'items' => [
 
-                ['label' => 'Главная', 'url' => ['/site/index'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Главная', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Списки Приемной комиссии', 'url' => ['/user4/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Заявления', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-                ['label' => 'Отчеты', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+                ['label' => 'Отчеты', 'url' => ['/abitur/index1'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Объявления', 'url' => ['/chat/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 [
                     'label' => 'Справочники',
@@ -197,12 +197,12 @@ AppAsset::register($this);
             <?= $content ?>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <p class="pull-right">Министерство образования и науки Кыргызской Республики &copy; <?= date('Y') ?></p>
-        </div>
-    </footer>
+<!---->
+<!--    <footer class="footer">-->
+<!--        <div class="container">-->
+<!--            <p class="pull-right">Министерство образования и науки Кыргызской Республики &copy; --><?//= date('Y') ?><!--</p>-->
+<!--        </div>-->
+<!--    </footer>-->
 
     <?php $this->endBody() ?>
     </body>
