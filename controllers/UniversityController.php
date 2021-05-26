@@ -2,9 +2,12 @@
 
 namespace app\controllers;
 
+use app\models\StudentRegistration;
 use Yii;
 use app\models\University;
 use app\models\UniversitySearch;
+use yii\base\BaseObject;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -124,5 +127,11 @@ class UniversityController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
+    public function actionApplicationlist()
+    {
+        $dataProvider = new ActiveDataProvider(['query' => StudentRegistration::find()]);
+        return $this->render('applicationlist', [
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }

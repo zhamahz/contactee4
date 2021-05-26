@@ -152,7 +152,7 @@ AppAsset::register($this);
                 ['label' => 'Аналитика', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 
 
-                ['label' => 'Список заявлений', 'url' => ['/site/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Список заявлений', 'url' => ['/university/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
                 ['label' => 'Отчеты', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
                 ['label' => 'Экзамены ', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 

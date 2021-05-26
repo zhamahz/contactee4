@@ -1,34 +1,25 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\University */
+/* @var $searchModel app\models\StudentRegistrationSearch */
+/* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Список всех ВУЗов', 'url' => ['index']];
+$this->title = 'Список заявлений иностранных абитуриентов';
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
 ?>
-<div class="university-view">
+<div class="student-registration-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Вы уверены, что хотите удалить запись?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
-
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
+    <?= GridView::widget([
+        'dataProvider' => $dataProvider,
+        'filterModel' => $searchModel,
+        'columns' => [
+            ['class' => 'yii\grid\SerialColumn'],
 
             'id',
 //            'id_user',
@@ -63,7 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
             //'visa',
             //'datetime_visa',
             'status_visa',
-        ],
-    ]) ?>
 
+            ['class' => 'yii\grid\ActionColumn'],
+        ],
+    ]); ?>
 </div>

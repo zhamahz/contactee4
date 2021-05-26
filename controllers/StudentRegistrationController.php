@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\University;
 use app\models\UniversitySearch;
 use Yii;
 use app\models\StudentRegistration;
@@ -78,9 +79,11 @@ class StudentRegistrationController extends Controller
     public function actionCreate()
     {
         $model = new StudentRegistration();
-//        $model->id_user = Yii::$app->user->identity->id;
-//        $model->id_user = 16;
-        $model->id_user=Yii::$app->user->identity->id;
+        $model->id_uni_1=Yii::$app->user->identity->id;
+        $model->id_uni_2=Yii::$app->user->identity->id;
+        $model->id_uni_3=Yii::$app->user->identity->id;
+        $model->id_uni_4=Yii::$app->user->identity->id;
+        $model->id_uni_5=Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -94,7 +97,6 @@ class StudentRegistrationController extends Controller
     {
         $model = new StudentRegistration();
 //        $model->id_user = Yii::$app->user->identity->id;
-//        $model->id_user=16;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -161,4 +163,5 @@ class StudentRegistrationController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
 }
