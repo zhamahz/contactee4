@@ -18,7 +18,7 @@ class AbiturSearch extends Abitur
     {
         return [
             [['id', 'id_university', 'id_country', 'id_speciality'], 'integer'],
-            [['fullname', 'status1', 'status2', 'dop'], 'safe'],
+            [['fullname', 'status1', 'date1', 'status2', 'date2', 'dop'], 'safe'],
         ];
     }
 
@@ -62,6 +62,8 @@ class AbiturSearch extends Abitur
             'id_university' => $this->id_university,
             'id_country' => $this->id_country,
             'id_speciality' => $this->id_speciality,
+            'date1' => $this->date1,
+            'date2' => $this->date2,
         ]);
 
         $query->andFilterWhere(['like', 'fullname', $this->fullname])

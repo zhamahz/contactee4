@@ -8,6 +8,7 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Abiturs';
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="abitur-index">
@@ -26,12 +27,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            'fullname',
             'id_university',
+            'fullname',
             'id_country',
             'id_speciality',
-            //'status1',
+            'status1',
+            'date1',
             //'status2',
+            //'date2',
             //'dop',
 
             ['class' => 'yii\grid\ActionColumn'],
