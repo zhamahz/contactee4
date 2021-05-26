@@ -47,7 +47,8 @@ class User4Controller extends Controller
 
         if ($q == 12)
         {
-            $dataProvider=new ActiveDataProvider(['query' => User4::find()->where(['status' => 2])]);
+            //$dataProvider=new ActiveDataProvider(['query' => User4::find()->where(['not',['id_university' => null]])]);
+            $dataProvider=new ActiveDataProvider(['query' => User4::find()->where(['like', 'username','uni%', false ])]);
         }
 
 //        return $this->render('indexmon5',[
