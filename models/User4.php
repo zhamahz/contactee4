@@ -59,7 +59,7 @@ class User4 extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'логин',
+            'username' => 'Логин',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'confirmation_token' => 'Confirmation Token',
