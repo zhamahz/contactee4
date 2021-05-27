@@ -42,7 +42,7 @@ use Yii;
  * @property string $status_visa
  * @property string $status_vuz
  *
- * @property User $user
+ * @property User2 $user
  * @property Programs $program3
  * @property Programs $program30
  * @property Programs $program4
@@ -83,7 +83,7 @@ class StudentRegistration extends \yii\db\ActiveRecord
             [['photo_passport', 'pdf_attestat', 'pdf_motivation'], 'string'],
             [['fullname', 'gender', 'email'], 'string', 'max' => 255],
             [['visa'], 'string', 'max' => 20],
-            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User3::className(), 'targetAttribute' => ['id_user' => 'id']],
             [['id_program_3'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_program_3' => 'id']],
             [['id_program_3'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_program_3' => 'id']],
             [['id_program_4'], 'exist', 'skipOnError' => true, 'targetClass' => Programs::className(), 'targetAttribute' => ['id_program_4' => 'id']],
@@ -151,7 +151,7 @@ class StudentRegistration extends \yii\db\ActiveRecord
      */
     public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'id_user']);
+        return $this->hasOne(User3::className(), ['id' => 'id_user']);
     }
 
     /**

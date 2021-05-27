@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use app\models\University;
+use app\models\User2;
 use app\models\UniversitySearch;
 use Yii;
 use app\models\StudentRegistration;
@@ -96,7 +97,7 @@ class StudentRegistrationController extends Controller
     public function actionProfile()
     {
         $model = new StudentRegistration();
-//        $model->id_user = Yii::$app->user->identity->id;
+        $model->id_user = Yii::$app->user->identity->id;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
