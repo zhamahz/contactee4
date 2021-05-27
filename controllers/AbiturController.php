@@ -146,9 +146,13 @@ class AbiturController extends Controller
      */
     public function actionIndex1()
     {
+//        $q = Abitur::find()
+//            ->where(['id_university' => 4 ])
+//            ->all();
         $q = Abitur::find()
-            ->where(['id_university' => 4 ])
-            ->all();
+            ->where('status1' == 1)
+            ->groupBy(['id_university'])->all();
+
         $query = new ArrayQuery();
         $query->from($q);
         $query1 = $query->count();
@@ -160,9 +164,8 @@ class AbiturController extends Controller
     }
     public function actionCount(){
         $leadsCount = Abitur::find()
-            ->where('status1 = 1')
+            ->where('status1' == 1)
             ->groupBy(['id_university'])
             ->count();
-
     }
 }
