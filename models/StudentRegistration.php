@@ -135,7 +135,7 @@ class StudentRegistration extends \yii\db\ActiveRecord
             'id_uni_5' => 'Университет №5',
             'id_program_5' => 'Специальность №5',
             'datetime_reg_5' => 'Дата подачи №5',
-            'id_uni_accepted_1' => 'Принятый университет №1',
+            'id_uni_accepted_1' => 'Статус',
             'id_uni_accepted_2' => 'Принятый университет №2',
             'id_uni_accepted_3' => 'Принятый университет №3',
             'id_uni_accepted_4' => 'Принятый университет №4',

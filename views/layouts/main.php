@@ -135,7 +135,7 @@ AppAsset::register($this);
             'activateParents' => true,
             'items' => [
 
-                ['label' => 'Главная', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest],
+                ['label' => 'Главная', 'url' => ['/site/index'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Списки Приемной комиссии', 'url' => ['/user4/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Заявления', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Отчеты', 'url' => ['/abitur/index1'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
@@ -147,12 +147,12 @@ AppAsset::register($this);
                         ['label' => 'Списки специальности', 'url' => ['/programs/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                         ['label' => 'Списки стран', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                     ],],
-///////////////////
+
                 ['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
                 ['label' => 'Аналитика', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 
 
-                ['label' => 'Список заявлений', 'url' => ['/university/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Список заявлений', 'url' => ['/student-registration/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
                 ['label' => 'Отчеты', 'url' => ['/site/universityreport'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
                 ['label' => 'Экзамены ', 'url' => ['/site/universityexam'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 
@@ -197,12 +197,13 @@ AppAsset::register($this);
             <?= $content ?>
         </div>
     </div>
-<!---->
-<!--    <footer class="footer">-->
-<!--        <div class="container">-->
-<!--            <p class="pull-right">Министерство образования и науки Кыргызской Республики &copy; --><?//= date('Y') ?><!--</p>-->
-<!--        </div>-->
-<!--    </footer>-->
+    <!---->
+    <!--    <footer class="footer">-->
+    <!--        <div class="container">-->
+    <!--            <p class="pull-right">Министерство образования и науки Кыргызской Республики &copy; -->
+    <? //= date('Y') ?><!--</p>-->
+    <!--        </div>-->
+    <!--    </footer>-->
 
     <?php $this->endBody() ?>
     </body>
