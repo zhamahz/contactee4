@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 use sjaakp\gcharts\PieChart;
 use yii\data\ActiveDataProvider;
+use sjaakp\gcharts\GeoChart;
 
 
 
@@ -34,15 +35,15 @@ $this->params['breadcrumbs'][] = $this->title;
       ['class' => 'yii\grid\ActionColumn', 'template' => '{update}'],
         ],
     ]); ?>
-    <?= PieChart::widget([
-        'height' => '400px',
-        'dataProvider' => $dataProvider,
-        'columns' => [
-            'name:string',
-            'id'
-        ],
-        'options' => [
-            'title' => 'Countries by Population'
-        ],
-    ]) ?>
+<!--    --><?//= GeoChart::widget([
+//        'height' => '400px',
+//        'dataProvider' => $dataProvider,
+//        'columns' => [
+//            'name:string',
+//            'name'
+//        ],
+//        'options' => [
+//            'title' => 'Countries by Population'
+//        ],
+//    ]) ?>
 </div>

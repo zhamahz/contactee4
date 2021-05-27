@@ -186,4 +186,30 @@ class AbiturController extends Controller
             'query1' => $query1,
         ]);
     }
+
+    /**
+     * Lists all Abitur models.
+     * @return mixed
+     */
+    public function actionIndex3()
+    {
+        $searchModel = new AbiturSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+//        $q = Yii::$app->user->identity->id;
+//
+//        $dataProvider=new ActiveDataProvider(['query' => Abitur::find()]);
+//
+//        if ($q == 12)
+//        {
+//            //$dataProvider=new ActiveDataProvider(['query' => User4::find()->where(['not',['id_university' => null]])]);
+//            // $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['status1' => 1]);
+//            $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['status1' => '1'])]);
+//        }
+        return $this->render('index3', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
 }
