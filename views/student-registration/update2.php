@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $model app\models\StudentRegistration */
 
 $this->title = 'Apply now: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Student Registrations', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Student Registrations', 'url' => ['index1']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
+    <?= $this->render('form', [
         'model' => $model,
     ]) ?>
 
