@@ -5,15 +5,18 @@ namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Abitur;
+use app\models\University;
+use app\models\Country;
+use app\models\Programs;
 
 /**
  * AbiturSearch represents the model behind the search form of `app\models\Abitur`.
  */
 class AbiturSearch extends Abitur
 {
-    public $univerName;
-    public $countryName;
-    public $programmsName;
+    public $univer2Name;
+    public $country2Name;
+    public $programms2Name;
 
     /**
      * {@inheritdoc}
@@ -22,7 +25,7 @@ class AbiturSearch extends Abitur
     {
         return [
             [['id', 'id_university', 'id_country', 'id_speciality'], 'integer'],
-            [['fullname', 'status1', 'date1', 'status2', 'date2', 'dop', 'univerName', 'countryName', 'programmsName'], 'safe'],
+            [['univer2Name', 'country2Name', 'programms2Name','fullname', 'status1', 'date1', 'status2', 'date2', 'dop'], 'safe'],
         ];
     }
 
@@ -50,23 +53,24 @@ class AbiturSearch extends Abitur
         $query->joinWith(['country']);
         // add conditions that should always apply here
 
+
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-        $dataProvider->sort->attributes['univerName'] = [
+
+        $dataProvider->sort->attributes['univer2Name'] = [
             'asc' => [University::tableName() . '.name' => SORT_ASC],
             'desc' => [University::tableName() . '.name' => SORT_DESC],
         ];
-        $dataProvider->sort->attributes['countryName'] = [
+        $dataProvider->sort->attributes['programms2Name'] = [
             'asc' => [Programs::tableName() . '.speciality' => SORT_ASC],
             'desc' => [Programs::tableName() . '.speciality' => SORT_DESC],
         ];
-        $dataProvider->sort->attributes['programmsName'] = [
+        $dataProvider->sort->attributes['country2Name'] = [
             'asc' => [Country::tableName() . '.name' => SORT_ASC],
             'desc' => [Country::tableName() . '.name' => SORT_DESC],
         ];
-
-
         $this->load($params);
 
         if (!$this->validate()) {
@@ -86,9 +90,9 @@ class AbiturSearch extends Abitur
 //        ]);
 
         $query->andFilterWhere(['like', 'fullname', $this->fullname])
-            ->andFilterWhere(['like', University::tableName() . '.name', $this->univerName])
-            ->andFilterWhere(['like', Country::tableName() . '.name', $this->countryName])
-            ->andFilterWhere(['like', Programs::tableName() . '.speciality', $this->programmsName])
+            ->andFilterWhere(['like', University::tableName() . '.name', $this->univer2Name])
+            ->andFilterWhere(['like', Country::tableName() . '.name', $this->country2Name])
+            ->andFilterWhere(['like', Programs::tableName() . '.speciality', $this->programms2Name])
             ->andFilterWhere(['like', 'status1', $this->status1])
             ->andFilterWhere(['like', 'status2', $this->status2])
             ->andFilterWhere(['like', 'dop', $this->dop]);
