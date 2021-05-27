@@ -135,10 +135,11 @@ AppAsset::register($this);
             'activateParents' => true,
             'items' => [
 
-                ['label' => 'Главная', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest],
+             //   ['label' => 'Главная', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest],
                 ['label' => 'Списки Приемной комиссии', 'url' => ['/user4/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
-                ['label' => 'Заявления', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+                ['label' => 'Заявления', 'url' => ['/student-registration4/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 ['label' => 'Отчеты', 'url' => ['/abitur/index1'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
+
                 ['label' => 'Объявления', 'url' => ['/chat/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                 [
                     'label' => 'Справочники',
@@ -148,8 +149,10 @@ AppAsset::register($this);
                         ['label' => 'Списки стран', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                     ],],
 ///////////////////
-                ['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
-                ['label' => 'Аналитика', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Аналитика', 'url' => ['/abitur/analitika2'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Список заявлений на визу', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Отчет списков заявлений на визу', 'url' => ['/abitur/index1'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+
 
 
                 ['label' => 'Список заявлений', 'url' => ['/university/applicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],

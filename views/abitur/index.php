@@ -7,7 +7,7 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\AbiturSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Abiturs';
+$this->title = 'Список заявлений на визу';
 
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -36,13 +36,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'status2',
             //'date2',
             //'dop',
-            ['attribute' => 'univerName', 'value'=>'university.name', 'label'=>'ВУЗ'],
+            ['attribute' => 'univer2Name', 'value'=>'university.name', 'label'=>'ВУЗ'],
             ['attribute' => 'fullname'],
-            ['attribute' => 'countryName', 'value'=>'country.name', 'label'=>'Страна'],
-            ['attribute' => 'programmsName', 'value'=>'speciality.speciality', 'label'=>'Специальность'],
+            ['attribute' => 'country2Name', 'value'=>'country.name', 'label'=>'Страна'],
+            ['attribute' => 'programms2Name', 'value'=>'speciality.speciality', 'label'=>'Специальность'],
+            ['attribute' => 'status2'],
             ['attribute' => 'status1'],
             ['attribute' => 'date1'],
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update}'],
         ],
     ]); ?>
 </div>

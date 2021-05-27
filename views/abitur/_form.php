@@ -23,12 +23,17 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'status1')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'date1')->textInput() ?>
+<!---->
+<!--    --><?//= $form->field($model, 'status2')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status2')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'status2')->dropDownList([
+        'Принять' => 'Принять',
+        'Отклонить' => 'Отклонить'
+    ]) ?>
 
     <?= $form->field($model, 'date2')->textInput() ?>
 
-    <?= $form->field($model, 'dop')->textInput(['maxlength' => true]) ?>
+<!--    --><?//= $form->field($model, 'dop')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
