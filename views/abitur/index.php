@@ -41,9 +41,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ['attribute' => 'country2Name', 'value'=>'country.name', 'label'=>'Страна'],
             ['attribute' => 'programms2Name', 'value'=>'speciality.speciality', 'label'=>'Специальность'],
             ['attribute' => 'status2'],
-            ['attribute' => 'status1'],
+           // ['attribute' => 'status1'],
             ['attribute' => 'date1'],
-            ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {update}'],
+            ['class' => 'yii\grid\ActionColumn', 'template' => '{update}'],
         ],
     ]); ?>
 </div>

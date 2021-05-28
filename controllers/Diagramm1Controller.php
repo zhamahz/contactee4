@@ -136,4 +136,26 @@ class Diagramm1Controller extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+/// для МИД
+    public function actionIndex2()
+    {
+        $searchModel = new Diagramm1Search();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index2', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
+
+    public function actionIndex3()
+    {
+        $searchModel = new Diagramm1Search();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('index3', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
 }

@@ -148,9 +148,9 @@ AppAsset::register($this);
                         ['label' => 'Списки стран', 'url' => ['/country/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mon')],
                     ],],
 
-                ['label' => 'Список заявлений на визу в МИД', 'url' => ['/student-registration1/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
-                ['label' => 'Аналитика', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
-                ['label' => 'Отчеты списков заявлений на визу', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Главная', 'url' => ['/diagramm1/index3'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Список заявлений на визу в МИД', 'url' => ['/abitur/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
+                ['label' => 'Отчеты списков заявлений на визу', 'url' => ['/diagramm1/index2'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Mid')],
 
 
                 ['label' => 'Список заявлений', 'url' => ['/student-registration/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
