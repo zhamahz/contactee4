@@ -5,6 +5,7 @@ use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ExamSearch */
+/* @var $searchModel app\models\StudentRegistrationSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Exams';
@@ -25,12 +26,12 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'id_user',
+//            'id',
             'type',
             'text_date',
             'link:ntext',
-            //'comment:ntext',
+            'comment:ntext',
+//            ['attribute' => 'uniName', 'value'=>'uni1.name', 'label'=>'Университет'],
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

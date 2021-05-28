@@ -14,14 +14,15 @@ class StudentRegistrationSearch extends StudentRegistration
 {
     public $countryName;
     public $programName;
+    public $uniName;
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'id_user', 'id_country', 'id_uni_1', 'id_program_1', 'id_uni_2', 'id_program_2', 'id_uni_3', 'id_program_3', 'id_uni_4', 'id_program_4', 'id_uni_5', 'id_program_5', 'id_uni_accepted_1', 'id_uni_accepted_2', 'id_uni_accepted_3', 'id_uni_accepted_4', 'id_uni_accepted_5'], 'integer'],
-            [['fullname', 'gender', 'birthday', 'email', 'photo_passport', 'pdf_attestat', 'pdf_motivation', 'datetime_reg_1', 'datetime_reg_2', 'datetime_reg_3', 'datetime_reg_4', 'datetime_reg_5', 'visa', 'datetime_visa', 'status_visa','countryName'], 'safe'],
+            [['id', 'id_user', 'id_country', 'id_uni_1', 'id_program_1', 'id_uni_2', 'id_program_2', 'id_uni_3', 'id_program_3', 'id_uni_4', 'id_program_4', 'id_uni_5', 'id_program_5', 'id_uni_accepted_2', 'id_uni_accepted_3', 'id_uni_accepted_4', 'id_uni_accepted_5'], 'integer'],
+            [['fullname', 'gender', 'birthday', 'email', 'photo_passport', 'pdf_attestat', 'pdf_motivation', 'datetime_reg_1', 'datetime_reg_2', 'datetime_reg_3', 'datetime_reg_4', 'datetime_reg_5', 'visa', 'datetime_visa', 'status_visa','countryName','uniName','programName'], 'safe'],
         ];
     }
 
@@ -50,6 +51,11 @@ class StudentRegistrationSearch extends StudentRegistration
         $query->joinWith(['program4']);
         $query->joinWith(['program5']);
         $query->joinWith(['country']);
+        $query->joinWith(['uni1']);
+        $query->joinWith(['uni2']);
+        $query->joinWith(['uni3']);
+        $query->joinWith(['uni4']);
+        $query->joinWith(['uni5']);
 
         // add conditions that should always apply here
 
@@ -64,7 +70,10 @@ class StudentRegistrationSearch extends StudentRegistration
             'asc' => [Programs::tableName() . '.speciality' => SORT_ASC],
             'desc' => [Programs::tableName() . '.speciality' => SORT_DESC],
         ];
-
+        $dataProvider->sort->attributes['uniName'] = [
+            'asc' => [Programs::tableName() . '.name' => SORT_ASC],
+            'desc' => [Programs::tableName() . '.name' => SORT_DESC],
+        ];
         $this->load($params);
 
         if (!$this->validate()) {
@@ -105,7 +114,7 @@ class StudentRegistrationSearch extends StudentRegistration
         $query->andFilterWhere(['like', 'fullname', $this->fullname])
             ->andFilterWhere(['like', 'gender', $this->gender])
             ->andFilterWhere(['like', 'email', $this->email])
-//            ->andFilterWhere(['like', University::tableName() . '.name', $this->univerName])
+            ->andFilterWhere(['like', University::tableName() . '.name', $this->uniName])
             ->andFilterWhere(['like', Country::tableName() . '.name', $this->countryName])
             ->andFilterWhere(['like', Programs::tableName() . '.speciality', $this->programName])
             ->andFilterWhere(['like', 'photo_passport', $this->photo_passport])

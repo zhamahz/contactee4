@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Exam;
 use app\models\ExamSearch;
+use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -43,7 +44,16 @@ class ExamController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionIndexq()
+    {
+        $searchModel = new ExamSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('indexq', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single Exam model.
      * @param integer $id

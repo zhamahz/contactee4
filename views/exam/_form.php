@@ -12,8 +12,6 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_user')->textInput() ?>
-
     <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'text_date')->textInput(['maxlength' => true]) ?>
@@ -21,6 +19,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'link')->textarea(['rows' => 6]) ?>
 
     <?= $form->field($model, 'comment')->textarea(['rows' => 6]) ?>
+
+    <?= $form->field($model, 'uni')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

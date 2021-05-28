@@ -11,14 +11,16 @@ use app\models\Exam;
  */
 class ExamSearch extends Exam
 {
+    public $uniName;
+
     /**
      * {@inheritdoc}
      */
     public function rules()
     {
         return [
-            [['id', 'id_user'], 'integer'],
-            [['type', 'text_date', 'link', 'comment'], 'safe'],
+            [['id', 'uni'], 'integer'],
+            [['type', 'text_date', 'link', 'comment', 'uniName'], 'safe'],
         ];
     }
 
@@ -41,13 +43,16 @@ class ExamSearch extends Exam
     public function search($params)
     {
         $query = Exam::find();
-
+        $query->joinWith(['uni0']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
-
+        $dataProvider->sort->attributes['countryName'] = [
+            'asc' => [University::tableName() . '.name' => SORT_ASC],
+            'desc' => [University::tableName() . '.name' => SORT_DESC],
+        ];
         $this->load($params);
 
         if (!$this->validate()) {
@@ -57,15 +62,16 @@ class ExamSearch extends Exam
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
-            'id' => $this->id,
-            'id_user' => $this->id_user,
-        ]);
+//        $query->andFilterWhere([
+//            'id' => $this->id,
+//            'uni' => $this->uni,
+//        ]);
 
         $query->andFilterWhere(['like', 'type', $this->type])
             ->andFilterWhere(['like', 'text_date', $this->text_date])
             ->andFilterWhere(['like', 'link', $this->link])
-            ->andFilterWhere(['like', 'comment', $this->comment]);
+            ->andFilterWhere(['like', 'comment', $this->comment])
+            ->andFilterWhere(['like', University::tableName() . '.name', $this->uniName]);
 
         return $dataProvider;
     }

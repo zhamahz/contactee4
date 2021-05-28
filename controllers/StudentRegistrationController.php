@@ -126,7 +126,30 @@ class StudentRegistrationController extends Controller
             'model' => $model,
         ]);
     }
+    public function actionUpdate1($id)
+    {
+        $model = $this->findModel($id);
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('update1', [
+            'model' => $model,
+        ]);
+    }
+    public function actionUpdate2($id)
+    {
+        $model = $this->findModel($id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('update2', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Deletes an existing StudentRegistration model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -164,5 +187,4 @@ class StudentRegistrationController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
-
 }

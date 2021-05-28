@@ -8,13 +8,13 @@ use Yii;
  * This is the model class for table "exam".
  *
  * @property int $id
- * @property int $id_user
  * @property string $type
  * @property string $text_date
  * @property string $link
  * @property string $comment
+ * @property int $uni
  *
- * @property User $user
+ * @property University $uni0
  */
 class Exam extends \yii\db\ActiveRecord
 {
@@ -32,10 +32,11 @@ class Exam extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id_user'], 'integer'],
             [['link', 'comment'], 'string'],
+            [['uni'], 'required'],
+            [['uni'], 'integer'],
             [['type', 'text_date'], 'string', 'max' => 255],
-            [['id_user'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['id_user' => 'id']],
+            [['uni'], 'exist', 'skipOnError' => true, 'targetClass' => University::className(), 'targetAttribute' => ['uni' => 'id']],
         ];
     }
 
@@ -46,19 +47,19 @@ class Exam extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'id_user' => 'Id User',
             'type' => 'Type',
             'text_date' => 'Text Date',
             'link' => 'Link',
             'comment' => 'Comment',
+            'uni' => 'Uni',
         ];
     }
 
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getUni0()
     {
-        return $this->hasOne(User::className(), ['id' => 'id_user']);
+        return $this->hasOne(University::className(), ['id' => 'uni']);
     }
 }

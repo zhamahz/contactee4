@@ -154,13 +154,14 @@ AppAsset::register($this);
 
 
                 ['label' => 'Список заявлений', 'url' => ['/student-registration/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
-                ['label' => 'Отчеты', 'url' => ['/exam/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Отчеты', 'url' => ['/abitur/index2'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
                 ['label' => 'Экзамены ', 'url' => ['/exam/index'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
+                ['label' => 'Объявления', 'url' => ['/chat/index1'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('University')],
 
                 ['label' => 'Профиль', 'url' => ['/student-registration/profile'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
                 ['label' => 'Форма подачи заявления', 'url' => ['/student-registration/create'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
                 ['label' => 'Поданные заявления', 'url' => ['/student-registration/myapplicationlist'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
-                ['label' => 'Экзамены АБ', 'url' => ['/student-registration/universityexams'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
+                ['label' => 'Экзамены ', 'url' => ['/exam/indexq'], 'visible' => !Yii::$app->user->isGuest and User::hasRole('Student')],
 
                 //['label' => 'Поиск', 'url' => ['/site/search'], 'visible' => !Yii::$app->user->isGuest],
                 //['label' => 'Контакты', 'url' => ['/site/contact'], 'visible' => !Yii::$app->user->isGuest],

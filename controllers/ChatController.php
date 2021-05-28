@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Chat;
 use app\models\ChatSearch;
+use yii\base\BaseObject;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -43,7 +44,16 @@ class ChatController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+    public function actionIndex1()
+    {
+        $searchModel = new ChatSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+        return $this->render('index1', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+    }
     /**
      * Displays a single Chat model.
      * @param integer $id

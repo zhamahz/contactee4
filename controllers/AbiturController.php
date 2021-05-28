@@ -168,4 +168,22 @@ class AbiturController extends Controller
             ->groupBy(['id_university'])
             ->count();
     }
+    public function actionIndex2()
+    {
+//        $q = Abitur::find()
+//            ->where(['id_university' => 4 ])
+//            ->all();
+        $q = Abitur::find()
+            ->where('status1' == 1)
+            ->groupBy(['id_university'])->all();
+
+        $query = new ArrayQuery();
+        $query->from($q);
+        $query1 = $query->count();
+
+        return $this->render('index2', [
+            'query' => $q,
+            'query1' => $query1,
+        ]);
+    }
 }

@@ -13,46 +13,45 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-
     <div class="col-lg-6">
         <?= $form->field($model, 'id_uni_1',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'),['selected'=>true,'value'=>'Select','prompt'=>'Select University']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select University']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_program_1',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'),['selected'=>true,'value'=>'Select','prompt'=>'Select Speciality']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select Speciality']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_uni_2',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'),['selected'=>true,'value'=>'Select','prompt'=>'Select University']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select University']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_program_2',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'),['selected'=>true,'value'=>'Select','prompt'=>'Select Speciality']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select Speciality']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_uni_3',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'),['selected'=>true,'value'=>'Select','prompt'=>'Select University']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select University']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_program_3',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'),['selected'=>true,'value'=>'Select','prompt'=>'Select Speciality']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select Speciality']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_uni_4',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'),['selected'=>true,'value'=>'Select','prompt'=>'Select University']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select University']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_program_4',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'),['selected'=>true,'value'=>'Select','prompt'=>'Select Speciality']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select Speciality']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_uni_5',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'),['selected'=>true,'value'=>'Select','prompt'=>'Select University']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\University::find()->all(), 'id', 'name'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select University']) ?>
     </div>
     <div class="col-lg-6">
         <?= $form->field($model, 'id_program_5',
-            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'),['selected'=>true,'value'=>'Select','prompt'=>'Select Speciality']) ?>
+            ['options' => ['tag' => false]])->dropDownList(ArrayHelper::map(\app\models\Programs::find()->all(), 'id', 'speciality'), ['selected' => true, 'value' => 'Select', 'prompt' => 'Select Speciality']) ?>
     </div>
     <div class="col-lg-6">
         <div class="form-group">
