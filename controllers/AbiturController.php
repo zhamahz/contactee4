@@ -50,7 +50,8 @@ class AbiturController extends Controller
         {
             //$dataProvider=new ActiveDataProvider(['query' => User4::find()->where(['not',['id_university' => null]])]);
            // $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['status1' => 1]);
-            $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['status1' => '1'])]);
+           // $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['status1' => '1'])]);
+            $dataProvider=new ActiveDataProvider(['query' => Abitur::find()->where(['like', 'status1','Приня%', false ])]);
         }
         return $this->render('index', [
             'searchModel' => $searchModel,

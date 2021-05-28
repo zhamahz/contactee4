@@ -5,8 +5,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Abitur */
 
-$this->title = 'Update Abitur: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Abiturs', 'url' => ['index']];
+$this->title = 'Изменить статус заявления: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Список заявлений на визу', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
